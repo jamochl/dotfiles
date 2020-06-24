@@ -1,17 +1,24 @@
-syntax enable
+syntax on
 set background=dark
 set nocompatible
 set clipboard=unnamedplus
-set hlsearch incsearch
-set number relativenumber
+set hlsearch
+set incsearch
+set number
+set relativenumber
 set showcmd
-set linebreak wrap
-set tabstop=4 shiftwidth=4 expandtab autoindent
-set backspace=indent,eol,start smarttab
+set linebreak
+set wrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set backspace=indent,eol,start
 set path=./**,**,
 " To view hidden characters, do :set list
-set listchars=tab:→\ ,space:·,trail:•,eol:¶
-set scrolloff=3
+set listchars=tab:→\ ,space:• ",trail:·,eol:¶
+set nolist
 " To speed up command execution after keypress
 set ttimeoutlen=10
 set wildmenu
@@ -29,7 +36,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " GIT AND FILE MANAGEMENT
-Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " FANCY POWERLINE
@@ -48,6 +54,8 @@ Plug 'ajh17/VimCompletesMe'
 " WRITING PLUGINS
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+" NOTE TAKING
+Plug 'vimwiki/vimwiki'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
