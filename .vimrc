@@ -1,4 +1,6 @@
+" VIM VARIABLES
 syntax on
+filetype plugin on
 set background=dark
 set nocompatible
 set clipboard=unnamedplus
@@ -23,54 +25,40 @@ set nolist
 set ttimeoutlen=10
 set wildmenu
 
-" Personal Bindings
-let mapleader = " "
-nmap <leader>p "0VP
-nmap <expr> <leader>o 'm`' . v:count1 . 'o<Esc>``'
-nmap <expr> <leader>O 'm`' . v:count1 . 'O<Esc>``'
-nmap <leader>h :noh<CR>
-
-" Plugins will be downloaded under the specified directory.
+" PLUGINS
 call plug#begin('~/.vim/plugged')
-" GENERAL USABILITY
+" General usability
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" GIT AND FILE MANAGEMENT
+" Git and file management
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" FANCY POWERLINE
+" Fancy powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" THEMES
+" Themes
 Plug 'morhetz/gruvbox'
-" FUZZY FILE SEARCH
+" Fuzzy file search
 Plug 'junegunn/fzf'
-" TMUX INTEGRATE - rebind window movement
+" Tmux integrate - rebind window movement
 "                  (ctrl-[hjkl])
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-" AUTOCOMPLETION
+" Autocompletion
 Plug 'ajh17/VimCompletesMe'
-" WRITING PLUGINS
+" Writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" NOTE TAKING
+" Note taking
 Plug 'vimwiki/vimwiki'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-" Shortcut for accessing NERDTree
-nmap <C-n> :NERDTreeToggle<CR> " Toggle NERD tree
-
-" Shortcut for accessing FZF
-nmap <C-f> :FZF<CR>
-
-" Setup Limelight and compatibility
-nmap <leader>l :Limelight!!<CR> " Toggle Limelight
+" EXTENSION VARIABLES
+" set limelight highlighting
 let g:limelight_conceal_ctermfg = 'gray'
 
-" Setup GOYO (The best writing plugin)
-nmap <leader>g :Goyo<CR> " Toggle Goyo
+" Set goyo enter exit for TMUX compatibility
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
@@ -90,22 +78,58 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:airline_theme='ayu_mirage'
 let g:airline_section_warning=''
 let g:airline#extensions#wordcount#enabled = 0
- let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 0
 " let g:airline#extensions#tabline#enabled = 1
 " let g:tmuxline_powerline_separators = 0
-
-" Setup Colourscheme
-colo gruvbox
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
 
+
+" Setup Colourscheme
+colo gruvbox
 " Specific colour modifications
 highlight Normal ctermfg=lightgrey
-
 " Set to have green comments
-"highlight Comment ctermfg='Green'
+highlight Comment ctermfg=green
 
+" PERSONAL BINDINGS
+let mapleader = " "
+let maplocalleader = " "
+nnoremap <leader>p "0VP
+nnoremap <expr> <leader>o 'm`' . v:count1 . 'o<Esc>``'
+nnoremap <expr> <leader>O 'm`' . v:count1 . 'O<Esc>``'
+nnoremap <leader>h :noh<CR>
+nnoremap <leader>a $
+nnoremap <leader>i ^
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap H 0
+nnoremap L $
+nnoremap M :call cursor(0, len(getline('.'))/2)<cr>
+inoremap jk <esc>
+" inoremap <esc> <nop>
+
+" EXTENSION BINDINGS
+" Toggle Nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
+" Access Fuzzy finder
+nnoremap <C-p> :FZF<CR>
+" Toggle Goyo GOYO (The best writing plugin)
+nnoremap <leader>g :Goyo<CR>
+" Setup Limelight and compatibility
+nnoremap <leader>l :Limelight!!<CR>
+" Quick comment (Doesn't work)
+noremap <c-_> :Commentary<CR>
+
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+
+" AUTOCMDS
 autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
 autocmd BufRead,BufNewFile *.js,*.html setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.py setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd BufWritePre,BufRead *.html :normal gg=G
+autocmd WinNew * <c-w>=
+
+" Sally sells sea shells at the sea shore
+" I want TO BUY a CANDY bar hello there
