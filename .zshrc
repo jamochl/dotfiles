@@ -1,7 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin/Tests:$PATH"
 # Allow Golang
+export GOPATH="$HOME/go"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:"$HOME/go/bin"
 #. ~/bin/my_functions.sh
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jameschlim/.oh-my-zsh"
@@ -72,18 +74,18 @@ export VISUAL="vim"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
+# Aliases
 alias open="xdg-open"
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias zshconf="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
+alias vimconf="vim ~/.vimrc"
+alias nvimconf="nvim ~/.config/nvim/init.vim"
 alias tmuxconf="vim ~/.tmux.conf"
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"'
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"'
 alias vi='vim -u NONE'
 alias nicedate="echo $(date | awk '{print $1,$2,$3,$NF}')"
-alias alaconfig="vim ~/.config/alacritty/alacritty.yml"
+alias alac="vim ~/.config/alacritty/alacritty.yml"
 alias doit="sudo apt update && sudo apt upgrade -y"
 alias mv="mv -v"
 alias cp="cp -v"
