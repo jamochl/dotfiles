@@ -18,6 +18,7 @@ set smarttab
 set autoindent
 set backspace=indent,eol,start
 set path=./**,**,
+set scrolloff=3
 " To view hidden characters, do :set list
 set listchars=tab:→\ ,space:• ",trail:·,eol:¶
 set nolist
@@ -107,8 +108,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap H 0
 nnoremap L $
 nnoremap M :call cursor(0, len(getline('.'))/2)<cr>
-inoremap jk <esc>
-" inoremap <esc> <nop>
 
 " EXTENSION BINDINGS
 " Toggle Nerdtree
@@ -122,14 +121,42 @@ nnoremap <leader>l :Limelight!!<CR>
 " Quick comment (Doesn't work)
 noremap <c-_> :Commentary<CR>
 
+" Testing commands
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 
 " AUTOCMDS
-autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
-autocmd BufRead,BufNewFile *.js,*.html setlocal shiftwidth=2 tabstop=2
-autocmd BufRead,BufNewFile *.py setlocal shiftwidth=4 tabstop=4 expandtab
-autocmd BufWritePre,BufRead *.html :normal gg=G
-autocmd WinNew * <c-w>=
+"
+augroup filtype_vimrc
+    autocmd!
+    "map 'au' to create augroup
+    autocmd BufRead,BufNewFile *.vimrc :iabbrev <buffer> au augroup <CR><CR>augroup END<esc>2k$i
+augroup END
 
-" Sally sells sea shells at the sea shore
-" I want TO BUY a CANDY bar hello there
+augroup filetype_md
+    autocmd!
+    autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
+    "test commands
+    autocmd BufRead,BufNewFile *.md onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\+$\rkvg_"<cr>
+    autocmd BufRead,BufNewFile *.md onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\+$\rVk"<cr>
+augroup END
+
+augroup filetype_js
+    autocmd!
+    autocmd BufRead,BufNewFile *.js,*.html setlocal shiftwidth=2 tabstop=2
+augroup END
+
+augroup filetype_html
+    autocmd!
+    autocmd BufWritePre,BufRead *.html :normal gg=G
+augroup END
+
+augroup filetype_py
+    autocmd!
+    autocmd BufRead,BufNewFile *.py setlocal shiftwidth=4 tabstop=4 expandtab
+augroup END
+
+augroup filetype_sh
+    autocmd!
+    autocmd BufRead,BufNewFile *.sh :iabbrev <buffer> iff if [ ]; then<CR><CR>fi<esc>2-f[a
+augroup END
+
