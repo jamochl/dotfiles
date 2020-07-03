@@ -11,8 +11,30 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
   
+window:
+
+  # Window position (changes require restart)
+  #
+  # Specified in number of pixels.
+  # If the position is not set, the window manager will handle the placement.
+  #position:
+  #  x: 0
+  #  y: 0
+
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 10
+    y: 10
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
 font:
   size: 11.0
+
 #
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -31,7 +53,7 @@ colors:
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#2c2c2c'
+    background: '#111111'
     # soft contrast: background = '#32302f'
     foreground: '#eeeeee'
 
