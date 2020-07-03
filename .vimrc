@@ -160,3 +160,4 @@ augroup filetype_sh
     autocmd BufRead,BufNewFile *.sh :iabbrev <buffer> iff if [ ]; then<CR><CR>fi<esc>2-f[a
 augroup END
 
+highlight Normal ctermbg=none
