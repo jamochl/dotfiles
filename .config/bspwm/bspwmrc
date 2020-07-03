@@ -1,0 +1,38 @@
+#!/bin/sh
+bspc rule -r "*"
+
+##AUTOSTART##
+xrandr --output eDP-1 --primary --auto --output HDMI-1 --auto --above eDP-1
+killall sxhkd
+sxhkd &
+killall compton
+compton --backend glx --vsync opengl-swc &
+feh --bg-scale ~/Pictures/GIMP/Jean-Ii-Restout-Pentecost-cropped.jpg &
+
+## MONITORS ##
+# Give each monitor 10 workspaces.
+for m in $(bspc query --monitors --names); do
+    bspc monitor $m -d 1 2 3 4 5 6 7
+done
+
+## GLOBAL SETTINGS ##
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config border_width         2
+bspc config window_gap           8
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+

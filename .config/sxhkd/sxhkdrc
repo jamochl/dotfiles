@@ -1,0 +1,154 @@
+# INDEPENDANT HOTKEYS #
+
+## General keys ##
+
+# Toggle compositor
+super + c
+    pkill compton || compton --backend glx --vsync opengl-swc
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Volume control
+XF86Audio{RaiseVolume,LowerVolume}
+    pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+10,-10}%
+
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+# Brightness control
+
+# Sleep (Add lockscreen)
+XF86Sleep
+    systemctl suspend
+
+## Applications ##
+#
+# terminal emulator
+super + t
+	alacritty
+
+# program launcher
+super + d
+	rofi -show run
+
+# Open Browser
+super + r
+    /opt/google/chrome/chrome
+
+#Open File browser
+super + e
+    nautilus
+
+#Open various apps
+ctrl + alt + o; {r, s, w}
+    {rambox, spotify, echo "should open a network manager"}
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# swap the current node and the biggest node
+super + Return
+	bspc node -s biggest.local
+
+#
+# state/flags
+#
+
+# set the window state
+super + shift + t
+	bspc node -t tiled
+
+super + shift + f
+    bspc node -t floating || bspc node -t tiled
+
+super + f
+    bspc node -t \~fullscreen
+    
+#
+# focus/swap
+#
+
+# focus the next/previous node in the current desktop
+
+## OLD CONFIG ##
+# super + {j,k}
+# 	bspc node -f {next,prev}.local
+
+# super + shift {h,j,k,l}
+#     bspc monitor -f {west,south,north,east}
+#
+## OLD CONFIG ##
+
+super + {h,j,k,l}
+    mode=-f; \
+    direction={west,south,north,east}; \
+	bspc node $mode $direction || bspc monitor $mode $direction
+
+super + shift + {h,j,k,l}
+    direction={west,south,north,east}; \
+	bspc node -s $direction --follow || bspc node -m $direction --follow
+
+super + ctrl + {h,j,k,l}
+    direction={west,south,north,east}; \
+	bspc node -n $direction --follow || bspc node -m $direction --follow || bspc node -s $direction --follow
+
+# focus or send to the given desktop
+# Now supports multimonitor where each monitor
+# can have up to 10 workspaces each.
+super + {_,shift + }{1-7}
+    monitor=$(bspc query -M --names -m focused); \
+    bspc {desktop -f,node -d} $monitor:'^'{1-7}
+#
+# Rotate the tree from the current nodes parent
+super + {comma,period}
+  bspc node @parent -C {backward, forward}
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+# super + alt + {h,j,k,l}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+# super + ctrl + {h,j,k,l}
+# 	bspc node -z {right -10 -10,bottom 10 10,bottom -10 -10,right 10 10}
+
+super + alt + h
+	bspc node -z right -20 0 || bspc node -z left -20 0
+
+super + alt + j
+	bspc node -z bottom 0 20 || bspc node -z top 0 20
+
+super + alt + k
+	bspc node -z bottom 0 -20 || bspc node -z top 0 -20
+
+super + alt + l
+	bspc node -z right 20 0 || bspc node -z left 20 0
+
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Change gaps
+super + {bracketleft,bracketright}
+    gapSize=$(bspc config window_gap); bspc config window_gap $(($gapSize {-,+} 8))
+
+super + 0
+    bspc config window_gap 8
