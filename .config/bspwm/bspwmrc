@@ -8,6 +8,8 @@ sxhkd &
 killall compton
 compton --backend glx --vsync opengl-swc &
 feh --bg-scale ~/Pictures/GIMP/Jean-Ii-Restout-Pentecost-cropped.jpg &
+killall yabar
+yabar &
 
 ## MONITORS ##
 # Give each monitor 10 workspaces.

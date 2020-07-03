@@ -18,6 +18,11 @@ XF86AudioMute
     pactl set-sink-mute 0 toggle
 
 # Brightness control
+XF86MonBrightnessUp
+    sudo $HOME/bin/backlight_control.sh up
+
+XF86MonBrightnessDown
+    sudo $HOME/bin/backlight_control.sh down
 
 # Sleep (Add lockscreen)
 XF86Sleep
@@ -31,11 +36,15 @@ super + t
 
 # program launcher
 super + d
-	rofi -show run
+	rofi -show drun -show-icons
+
+# program switcher
+super + slash
+    rofi -show window -show-icons
 
 # Open Browser
 super + r
-    /opt/google/chrome/chrome
+    google-chrome
 
 #Open File browser
 super + e
@@ -95,17 +104,13 @@ super + f
 ## OLD CONFIG ##
 
 super + {h,j,k,l}
-    mode=-f; \
     direction={west,south,north,east}; \
-	bspc node $mode $direction || bspc monitor $mode $direction
+	bspc node -f {$direction}.local || bspc monitor -f $direction
 
-super + shift + {h,j,k,l}
+super + {shift, ctrl} + {h,j,k,l}
+    mode={-s,-n}; \
     direction={west,south,north,east}; \
-	bspc node -s $direction --follow || bspc node -m $direction --follow
-
-super + ctrl + {h,j,k,l}
-    direction={west,south,north,east}; \
-	bspc node -n $direction --follow || bspc node -m $direction --follow || bspc node -s $direction --follow
+	bspc node $mode {$direction}.local --follow || bspc node -m $direction --follow
 
 # focus or send to the given desktop
 # Now supports multimonitor where each monitor
