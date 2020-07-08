@@ -89,11 +89,12 @@ alias alaconf="vim ~/.config/alacritty/alacritty.yml"
 alias doit="sudo apt update && sudo apt upgrade -y"
 alias mv="mv -v"
 alias cp="cp -v"
-alias bspwmconf="vim ~/.config/bspwm/bspwmrc"
+alias bspconf="vim ~/.config/bspwm/bspwmrc"
 alias sxhconf="vim ~/.config/sxhkd/sxhkdrc"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias hask="cd ~/projects/haskell/"
 
 # Special webapp functions
 function cheat() { curl cheat.sh/$1 }

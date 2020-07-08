@@ -86,13 +86,12 @@ let g:airline#extensions#tmuxline#enabled = 0
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
 
-
 " Setup Colourscheme
 colo gruvbox
 " Specific colour modifications
-highlight Normal ctermfg=lightgrey
+highlight Normal ctermfg=White
 " Set to have green comments
-highlight Comment ctermfg=green
+highlight Comment ctermfg=Blue
 
 " PERSONAL BINDINGS
 let mapleader = " "
@@ -108,6 +107,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap H 0
 nnoremap L $
 nnoremap M :call cursor(0, len(getline('.'))/2)<cr>
+inoremap jk <esc>
 
 " EXTENSION BINDINGS
 " Toggle Nerdtree
@@ -125,7 +125,7 @@ noremap <c-_> :Commentary<CR>
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 
 " AUTOCMDS
-"
+
 augroup filtype_vimrc
     autocmd!
     "map 'au' to create augroup
@@ -148,6 +148,7 @@ augroup END
 augroup filetype_html
     autocmd!
     autocmd BufWritePre,BufRead *.html :normal gg=G
+    autocmd BufRead,BufNewFile *.twig setlocal filetype=html
 augroup END
 
 augroup filetype_py
@@ -161,3 +162,4 @@ augroup filetype_sh
 augroup END
 
 highlight Normal ctermbg=none
+

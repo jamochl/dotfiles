@@ -43,7 +43,7 @@ scrolling:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 5
+  multiplier: 3
  
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -52,38 +52,36 @@ scrolling:
 colors:
   # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#111111'
-    # soft contrast: background = '#32302f'
-    foreground: '#eeeeee'
+    background: '#231a18'
+    foreground: '#fcfcf7'
 
   # Normal colors
   normal:
-    black:   '#2c2c2c'
-    red:     '#cc0000'
-    green:   '#289900'
-    yellow:  '#c4a000'
-    blue:    '#416dcc'
-    magenta: '#75507b'
-    cyan:    '#06989a'
-    white:   '#d3d7cf'
+    black:   '#282a2e'
+    red:     '#da5b6f'
+    green:   '#ba6e5b'
+    yellow:  '#de935f'
+    blue:    '#6f8e61'
+    magenta: '#f8dea5'
+    cyan:    '#5a9d82'
+    white:   '#a76292'
 
   # Bright colors
   bright:
-    black:   '#615b59'
-    red:     '#f15d22'
-    green:   '#73c48f'
-    yellow:  '#ffce51'
-    blue:    '#48b9c7'
-    magenta: '#ad7fa8'
-    cyan:    '#34e2e2'
-    white:   '#eeeeec'
+    black:   '0x373b41'
+    red:     '0xf1747c'
+    green:   '0xe3907c'
+    yellow:  '0xf0c674'
+    blue:    '0x9bbb6e'
+    magenta: '0xfedeb7'
+    cyan:    '0x73908d'
+    white:   '0xeeeeee'
 
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.75
+background_opacity: 0.8
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
