@@ -6,6 +6,10 @@
 super + c
     pkill compton || compton --backend glx --vsync opengl-swc
 
+# Toggle Notifications
+super + {_,shift + } n
+    notify-send "{DUNST_COMMAND_PAUSE, DUNST_COMMAND_RESUME}"
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -32,7 +36,7 @@ XF86Sleep
 #
 # terminal emulator
 super + t
-	alacritty
+    alacritty
 
 # program launcher
 super + d
@@ -53,6 +57,10 @@ super + e
 #Open various apps
 ctrl + alt + o; {r, s, w}
     {rambox, spotify, echo "should open a network manager"}
+
+#Emoji switcher
+super + s
+    /home/jameschlim/bin/emoji_select.sh
 
 #
 # bspwm hotkeys
@@ -95,8 +103,8 @@ super + f
 # focus the next/previous node in the current desktop
 
 ## OLD CONFIG ##
-# super + {j,k}
-# 	bspc node -f {next,prev}.local
+super + {n,p}
+ 	bspc node -f {next,prev}.local
 
 # super + shift {h,j,k,l}
 #     bspc monitor -f {west,south,north,east}
@@ -105,12 +113,12 @@ super + f
 
 super + {h,j,k,l}
     direction={west,south,north,east}; \
-	bspc node -f {$direction}.local || bspc monitor -f $direction
+	bspc node -f ${direction}.local || bspc monitor -f $direction
 
 super + {shift, ctrl} + {h,j,k,l}
     mode={-s,-n}; \
     direction={west,south,north,east}; \
-	bspc node $mode {$direction}.local --follow || bspc node -m $direction --follow
+	bspc node $mode ${direction}.local --follow || bspc node -m $direction --follow
 
 # focus or send to the given desktop
 # Now supports multimonitor where each monitor
