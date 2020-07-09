@@ -32,6 +32,25 @@ XF86MonBrightnessDown
 XF86Sleep
     systemctl suspend
 
+# Screenshotting
+ctrl + Print
+    maim | xclip -selection clipboard -t image/png
+
+Print
+    maim ~/Pictures/screenshot_$(date '+%Y-%m-%d').png
+
+ctrl + alt + Print
+    maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png
+
+alt + Print
+    maim -i $(xdotool getactivewindow) ~/mypicture.jpg
+
+ctrl + shift + Print
+    maim -s | xclip -selection clipboard -t image/png
+
+shift + Print
+    maim -s ~/Pictures/screenshot_$(date '+%Y-%m-%d').png
+
 ## Applications ##
 #
 # terminal emulator

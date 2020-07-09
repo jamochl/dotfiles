@@ -2,7 +2,7 @@
 xrandr --output eDP-1 --primary --auto --output HDMI-1 --auto --above eDP-1
 sxhkd -c /home/jameschlim/.config/dwm/sxhkdrc &
 compton --backend glx --vsync opengl-swc &
-feh --bg-scale ~/Pictures/Catholic/Jean-Ii-Restout-Pentecost-cropped.jpg &
+feh --bg-scale ~/Pictures/HILDA/Hilda_62.jpg &
 dunst &
 
 while true ; do 

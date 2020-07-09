@@ -33,6 +33,9 @@ XF86Sleep
     systemctl suspend
 
 # Screenshotting
+ctrl + Print
+    maim | xclip -selection clipboard -t image/png
+
 Print
     maim ~/Pictures/screenshot_$(date '+%Y-%m-%d').png
 
