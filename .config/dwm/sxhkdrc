@@ -1,0 +1,79 @@
+# INDEPENDANT HOTKEYS #
+
+## General keys ##
+
+# Toggle compositor
+super + c
+    pkill compton || compton --backend glx --vsync opengl-swc
+#
+# Toggle Notifications
+super + {_,shift + } n
+    notify-send {'DUNST_COMMAND_PAUSE', 'DUNST_COMMAND_RESUME'}
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Volume control
+XF86Audio{RaiseVolume,LowerVolume}
+    pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+10,-10}%
+
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+
+# Brightness control
+XF86MonBrightnessUp
+    sudo $HOME/bin/backlight_control.sh up
+
+XF86MonBrightnessDown
+    sudo $HOME/bin/backlight_control.sh down
+
+# Sleep (Add lockscreen)
+XF86Sleep
+    systemctl suspend
+
+# Screenshotting
+Print
+    maim ~/Pictures/screenshot_$(date '+%Y-%m-%d').png
+
+ctrl + alt + Print
+    maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png
+
+alt + Print
+    maim -i $(xdotool getactivewindow) ~/mypicture.jpg
+
+ctrl + shift + Print
+    maim -s | xclip -selection clipboard -t image/png
+
+shift + Print
+    maim -s ~/Pictures/screenshot_$(date '+%Y-%m-%d').png
+
+## Applications ##
+#
+# terminal emulator
+super + t
+	alacritty --config-file ~/.config/alacritty/alacritty_wm.yml
+
+# program launcher
+super + d
+	rofi -show drun -show-icons
+
+# program switcher
+super + slash
+    rofi -show window -show-icons
+
+# Open Browser
+super + r
+    google-chrome
+
+#Open File browser
+super + e
+    nautilus
+
+#Open various apps
+ctrl + alt + o; {r, s, w}
+    {rambox, spotify, echo "should open a network manager"}
+
+#Emoji switcher
+super + s
+    /home/jameschlim/bin/emoji_select.sh
