@@ -52,6 +52,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Note taking
 Plug 'vimwiki/vimwiki'
+" HEX rgb view
+Plug 'chrisbra/Colorizer'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -82,6 +84,9 @@ let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
 " let g:airline#extensions#tabline#enabled = 1
 " let g:tmuxline_powerline_separators = 0
+
+" Set Colorizer to auto
+let g:colorizer_auto_color = 1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
@@ -120,6 +125,8 @@ nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>l :Limelight!!<CR>
 " Quick comment (Doesn't work)
 noremap <c-_> :Commentary<CR>
+" Color toggling
+noremap <leader>c :ColorToggle<CR>
 
 " Testing commands
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
