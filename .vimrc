@@ -41,10 +41,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 " Fuzzy file search
 Plug 'junegunn/fzf'
-" Tmux integrate - rebind window movement
-"                  (ctrl-[hjkl])
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'edkolev/tmuxline.vim'
 " Autocompletion
 Plug 'ajh17/VimCompletesMe'
 " Writing plugins
@@ -52,14 +48,20 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Note taking
 Plug 'vimwiki/vimwiki'
-" HEX rgb view
-Plug 'chrisbra/Colorizer'
+" HEX rgb view Colorizer broken
+" Plug 'chrisbra/Colorizer'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " EXTENSION VARIABLES
-" set limelight highlighting
+" Limelight settings
 let g:limelight_conceal_ctermfg = 'gray'
+
+" FZF Settings
+let g:fzf_layout = { 'down': '~10%' }
+
+" Nerdtree settings
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Set goyo enter exit for TMUX compatibility
 function! s:goyo_enter()
@@ -71,7 +73,10 @@ function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
-  highlight Normal ctermfg=lightgrey
+  highlight Normal ctermfg=white
+  highlight Comment ctermfg=Blue
+  highlight Normal ctermbg=none
+
   Limelight!
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -82,11 +87,6 @@ let g:airline_theme='ayu_mirage'
 let g:airline_section_warning=''
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
-" let g:airline#extensions#tabline#enabled = 1
-" let g:tmuxline_powerline_separators = 0
-
-" Set Colorizer to auto
-let g:colorizer_auto_color = 1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
@@ -97,6 +97,8 @@ colo gruvbox
 highlight Normal ctermfg=White
 " Set to have green comments
 highlight Comment ctermfg=Blue
+" Set background none
+highlight Normal ctermbg=none
 
 " PERSONAL BINDINGS
 let mapleader = " "
@@ -109,10 +111,6 @@ nnoremap <leader>a $
 nnoremap <leader>i ^
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap H 0
-nnoremap L $
-nnoremap M :call cursor(0, len(getline('.'))/2)<cr>
-inoremap jk <esc>
 
 " EXTENSION BINDINGS
 " Toggle Nerdtree
@@ -126,7 +124,7 @@ nnoremap <leader>l :Limelight!!<CR>
 " Quick comment (Doesn't work)
 noremap <c-_> :Commentary<CR>
 " Color toggling
-noremap <leader>c :ColorToggle<CR>
+" noremap <leader>c :ColorToggle<CR>
 
 " Testing commands
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
@@ -167,6 +165,3 @@ augroup filetype_sh
     autocmd!
     autocmd BufRead,BufNewFile *.sh :iabbrev <buffer> iff if [ ]; then<CR><CR>fi<esc>2-f[a
 augroup END
-
-highlight Normal ctermbg=none
-
