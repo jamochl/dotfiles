@@ -16,17 +16,17 @@ super + Escape
 
 # Volume control
 XF86Audio{RaiseVolume,LowerVolume}
-    pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+10,-10}%
+    pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+5,-5}% && bar_script.sh
 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    pactl set-sink-mute 0 toggle && bar_script.sh
 
 # Brightness control
 XF86MonBrightnessUp
-    sudo $HOME/bin/backlight_control.sh up
+    sudo $HOME/bin/backlight_control.sh up && bar_script.sh
 
 XF86MonBrightnessDown
-    sudo $HOME/bin/backlight_control.sh down
+    sudo $HOME/bin/backlight_control.sh down && bar_script.sh
 
 # Sleep (Add lockscreen)
 XF86Sleep
@@ -34,22 +34,22 @@ XF86Sleep
 
 # Screenshotting
 ctrl + Print
-    maim | xclip -selection clipboard -t image/png
+    maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 Print
-    maim ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png
+    maim ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ctrl + alt + Print
-    maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png
+    maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 alt + Print
-    maim -i $(xdotool getactivewindow) ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png
+    maim -i $(xdotool getactivewindow) ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ctrl + shift + Print
-    maim -s | xclip -selection clipboard -t image/png
+    maim -s | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 shift + Print
-    maim -s ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png
+    maim -s ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ## Applications ##
 #

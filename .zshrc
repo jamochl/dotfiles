@@ -91,6 +91,7 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias bspconf="vim ~/.config/bspwm/bspwmrc"
 alias sxhconf="vim ~/.config/sxhkd/sxhkdrc"
+alias dsxhconf="vim ~/.config/dwm/sxhkdrc"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

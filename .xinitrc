@@ -6,9 +6,7 @@ feh --bg-scale ~/Pictures/HILDA/Hilda_62.jpg &
 dunst &
 
 while true ; do 
-    time=$(date '+%d %b %Y - %I:%M %p')
-    battery=$(sh $HOME/bin/system_query/battery_capacity.sh)
-    xsetroot -name " $time $battery "; sleep 30; 
+    ~/bin/bar_script.sh; sleep 10;
 done &
 
 exec dwm
