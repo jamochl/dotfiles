@@ -16,17 +16,22 @@ super + Escape
 
 # Volume control
 XF86Audio{RaiseVolume,LowerVolume}
-    pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+5,-5}% && bar_script.sh
+    pactl set-sink-mute 0 false; \
+    pactl set-sink-volume 0 {+5,-5}% && \
+    bar_script.sh && \
 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle && bar_script.sh
+    pactl set-sink-mute 0 toggle && \
+    bar_script.sh
 
 # Brightness control
 XF86MonBrightnessUp
-    sudo $HOME/bin/backlight_control.sh up && bar_script.sh
+    sudo $HOME/bin/backlight_control.sh up && \
+    bar_script.sh
 
 XF86MonBrightnessDown
-    sudo $HOME/bin/backlight_control.sh down && bar_script.sh
+    sudo $HOME/bin/backlight_control.sh down && \
+    bar_script.sh
 
 # Sleep (Add lockscreen)
 XF86Sleep
