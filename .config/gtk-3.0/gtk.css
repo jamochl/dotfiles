@@ -1,7 +1,18 @@
 * {
  border-radius: 0;
  border-style: none;
- /* background-color: #734C4F; */
+}
+
+/* remove window title from Client-Side Decorations */
+.solid-csd headerbar .title {
+    font-size: 0;
+}
+
+/* hide extra window decorations/double border */
+window decoration {
+    margin: 0;
+    border: none;
+    padding: 0;
 }
 
 .window-frame, .window-frame:backdrop {

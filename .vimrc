@@ -50,8 +50,12 @@ Plug 'junegunn/limelight.vim'
 Plug 'vimwiki/vimwiki'
 " HEX rgb view Colorizer broken
 " Plug 'chrisbra/Colorizer'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+" Vim colour highlighting
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 
 " EXTENSION VARIABLES
 " Limelight settings
@@ -124,7 +128,7 @@ nnoremap <leader>l :Limelight!!<CR>
 " Quick comment (Doesn't work)
 noremap <c-_> :Commentary<CR>
 " Color toggling
-" noremap <leader>c :ColorToggle<CR>
+noremap <leader>c :set termguicolors!<CR>
 
 " Testing commands
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
