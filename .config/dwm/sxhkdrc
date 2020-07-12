@@ -18,7 +18,7 @@ super + Escape
 XF86Audio{RaiseVolume,LowerVolume}
     pactl set-sink-mute 0 false; \
     pactl set-sink-volume 0 {+5,-5}% && \
-    bar_script.sh && \
+    bar_script.sh
 
 XF86AudioMute
     pactl set-sink-mute 0 toggle && \

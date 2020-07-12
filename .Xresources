@@ -32,7 +32,7 @@
 *.color14:      #73908d
 
 ! white
-*.color7:       #a76292
+*.color7:       #ffead4
 *.color15:      #eeeeee
 
 Xcursor.size : 24
