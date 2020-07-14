@@ -15,22 +15,27 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # Volume control
-XF86Audio{RaiseVolume,LowerVolume}
+{_,shift + }XF86Audio{RaiseVolume,LowerVolume}
+    percent={5,1}; \
     pactl set-sink-mute 0 false; \
-    pactl set-sink-volume 0 {+5,-5}% && \
+    pactl set-sink-volume 0 {+,-}${percent}% && \
     bar_script.sh
 
 XF86AudioMute
     pactl set-sink-mute 0 toggle && \
     bar_script.sh
 
+# Music control
+{_,shift + ,super + } Pause
+    playerctl {play-pause, --player=spotify play-pause, --all-players pause}
+
 # Brightness control
-XF86MonBrightnessUp
-    sudo $HOME/bin/backlight_control.sh up && \
+{_,shift + }XF86MonBrightnessUp
+    sudo $HOME/bin/backlight_control.sh up {_,1} && \
     bar_script.sh
 
-XF86MonBrightnessDown
-    sudo $HOME/bin/backlight_control.sh down && \
+{_,shift + }XF86MonBrightnessDown
+    sudo $HOME/bin/backlight_control.sh down {_,1} && \
     bar_script.sh
 
 # Sleep (Add lockscreen)
@@ -60,7 +65,7 @@ shift + Print
 #
 # terminal emulator
 super + t
-	alacritty --config-file ~/.config/alacritty/alacritty_wm.yml
+	alacritty
 
 # program launcher
 super + d

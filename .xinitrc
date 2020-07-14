@@ -6,7 +6,9 @@ feh --bg-scale ~/Pictures/HILDA/Hilda_62.jpg &
 dunst &
 
 while true ; do 
-    ~/bin/bar_script.sh; sleep 10;
+    ~/bin/bar_script.sh; sleep 5;
 done &
 
-exec dwm
+while true; do
+    dwm
+done

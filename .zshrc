@@ -92,6 +92,10 @@ alias cp="cp -v"
 alias bspconf="vim ~/.config/bspwm/bspwmrc"
 alias sxhconf="vim ~/.config/sxhkd/sxhkdrc"
 alias dsxhconf="vim ~/.config/dwm/sxhkdrc"
+alias dalaconf="vim ~/.config/dwm/alacritty_wm.yml"
+alias dunstconf="vim ~/.config/dunst/dunstrc"
+alias dwmcd="cd ~/projects/my_dwm/"
+alias stcd="cd ~/projects/st/"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
