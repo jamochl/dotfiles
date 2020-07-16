@@ -147,6 +147,7 @@ augroup filetype_md
     "test commands
     autocmd BufRead,BufNewFile *.md onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\+$\rkvg_"<cr>
     autocmd BufRead,BufNewFile *.md onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\+$\rVk"<cr>
+    autocmd BufRead,BufNewFile *.md nnoremap <F5> :!mdtopdf.sh -v %<CR>
 augroup END
 
 augroup filetype_js
@@ -156,8 +157,9 @@ augroup END
 
 augroup filetype_html
     autocmd!
-    autocmd BufWritePre,BufRead *.html :normal gg=G
+    " autocmd BufWritePre,BufRead *.html :normal gg=G
     autocmd BufRead,BufNewFile *.twig setlocal filetype=html
+    autocmd BufRead,BufNewFile *.html nnoremap <F5> :!firefox %<CR>
 augroup END
 
 augroup filetype_py
@@ -168,4 +170,6 @@ augroup END
 augroup filetype_sh
     autocmd!
     autocmd BufRead,BufNewFile *.sh :iabbrev <buffer> iff if [ ]; then<CR><CR>fi<esc>2-f[a
+    autocmd BufRead,BufNewFile *.sh :iabbrev <buffer> iff if [ ]; then<CR><CR>fi<esc>2-f[a
+    autocmd BufRead,BufNewFile *.sh nnoremap <F5> :!sh % <CR>
 augroup END

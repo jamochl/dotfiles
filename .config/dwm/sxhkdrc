@@ -7,8 +7,8 @@ super + c
     pkill compton || compton --backend glx --vsync opengl-swc
 #
 # Toggle Notifications
-super + {_,shift + } n
-    notify-send {'DUNST_COMMAND_PAUSE', 'DUNST_COMMAND_RESUME'}
+super + {shift + ,_} n
+    notify-send {'DUNST_COMMAND_PAUSE', 'DUNST_COMMAND_RESUME'; notify-send 'Notifications Resumed'}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -28,6 +28,9 @@ XF86AudioMute
 # Music control
 {_,shift + ,super + } Pause
     playerctl {play-pause, --player=spotify play-pause, --all-players pause}
+
+super + shift + {Left, Right}
+    playerctl {previous, next}
 
 # Brightness control
 {_,shift + }XF86MonBrightnessUp
@@ -77,7 +80,7 @@ super + slash
 
 # Open Browser
 super + r
-    google-chrome
+    brave-browser
 
 #Open File browser
 super + e
