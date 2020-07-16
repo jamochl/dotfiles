@@ -1,0 +1,5 @@
+#!/bin/sh
+
+killall compton
+xdotool key super+c
+notify-send 'HOTPLUG'
