@@ -14,6 +14,10 @@ super + {shift + ,_} n
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# Network manager
+super + Menu
+    alacritty -e nmtui
+
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
     percent={5,1}; \
@@ -24,6 +28,10 @@ super + Escape
 XF86AudioMute
     pactl set-sink-mute 0 toggle && \
     bar_script.sh
+
+# Access fine volume control
+shift + XF86AudioMute
+    alacritty -e alsamixer
 
 # Music control
 {_,shift + ,super + } Pause
