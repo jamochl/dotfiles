@@ -34,22 +34,22 @@ window:
   dynamic_padding: true
 
 font:
-  size: 11.0
+  size: 12.0
 
   normal:
-    family: monospace
+    family: FiraCode Nerd Font
     style: Regular
 
   bold:
-    family: monospace
+    family: FiraCode Nerd Font
     style: Bold
 
   italic:
-    family: monospace
+    family: FiraCode Nerd Font
     style: Italic
 
   bold_italic:
-    family: monospace
+    family: FiraCode Nerd Font
     style: Bold Italic
 
 #
