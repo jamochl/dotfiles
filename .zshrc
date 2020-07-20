@@ -71,24 +71,23 @@ export VISUAL="vim"
 # For a full list of active aliases, run `alias`.
 
 # Aliases
-alias open="xdg-open"
-alias zshconf="vim ~/.zshrc"
-alias zshsource="source ~/.zshrc"
-alias vimconf="vim ~/.vimrc"
-alias nvimconf="nvim ~/.config/nvim/init.vim"
-alias tmuxconf="vim ~/.tmux.conf"
-alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"'
-alias vi='vim -u NONE'
-alias nicedate="echo $(date | awk '{print $1,$2,$3,$NF}')"
-alias alaconf="vim ~/.config/alacritty/alacritty.yml"
 alias doit="sudo apt update && sudo apt upgrade -y"
 alias mv="mv -v"
 alias cp="cp -v"
+alias vi='vim -u NONE'
+alias open="xdg-open"
+alias zshconf="vim ~/.zshrc"
+alias zshso="source ~/.zshrc"
+alias vimconf="vim ~/.vimrc"
+alias nvimconf="nvim ~/.config/nvim/init.vim"
+alias tmuxconf="vim ~/.tmux.conf"
+alias alaconf="vim ~/.config/alacritty/alacritty.yml"
 alias bspconf="vim ~/.config/bspwm/bspwmrc"
 alias sxhconf="vim ~/.config/sxhkd/sxhkdrc"
 alias dsxhconf="vim ~/.config/dwm/sxhkdrc"
 alias dunstconf="vim ~/.config/dunst/dunstrc"
 alias gtkconf="vim ~/.config/gtk-3.0/settings.ini"
+alias lfconf="vim ~/.config/lf/lfrc"
 alias gtkcd="cd ~/.config/gtk-3.0/"
 alias dwmcd="cd ~/projects/my_dwm/"
 alias stcd="cd ~/projects/st/"

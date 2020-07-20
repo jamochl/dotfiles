@@ -1,5 +1,5 @@
 #!/bin/sh
 
 killall compton
-xdotool key super+c
+setsid compton --backend glx --vsync opengl-swc
 notify-send 'HOTPLUG'

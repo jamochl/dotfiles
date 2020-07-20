@@ -3,10 +3,10 @@
  border-style: none;
 }
 
-/* remove window title from Client-Side Decorations */
-.solid-csd headerbar .title {
-    font-size: 0;
-}
+/* /1* remove window title from Client-Side Decorations *1/ */
+/* .solid-csd headerbar .title { */
+/*     font-size: 0; */
+/* } */
 
 /* hide extra window decorations/double border */
 window decoration {

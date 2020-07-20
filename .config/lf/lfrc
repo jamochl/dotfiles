@@ -51,7 +51,8 @@ cmap <down> cmd-history-next
 cmd q quit
 
 # dedicated keys for file opener actions
-map o $mimeopen --ask $f
+map O $mimeopen --ask $f
+map oo $mimeopen $f
 
 # LF OPTIONS
 # leave some space at the top and the bottom of the screen
@@ -60,6 +61,7 @@ set dircounts
 set drawbox
 set icons
 set incsearch
+set findlen 2
 set previewer ~/.config/lf/previewer.sh
 map i $~/.config/lf/previewer.sh $f | less -R
 
@@ -70,6 +72,9 @@ map i $~/.config/lf/previewer.sh $f | less -R
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
+        video/*) mpv $f;;
+        audio/*) mpv $f;;
+        image/*) sxiv $fx;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}

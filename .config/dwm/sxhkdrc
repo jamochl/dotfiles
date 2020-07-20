@@ -96,7 +96,7 @@ super + r
 
 #Open File browser
 super + e
-    nautilus
+    alacritty -e lf
 
 #Open various apps
 ctrl + alt + o; {r, s, w}
