@@ -26,9 +26,9 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.npm/bin"
 export PATH="$PATH:$(composer config -g home)/vendor/bin"
-export DRUSH_LAUNCHER_FALLBACK=~/.composer/vendor/bin/drush
+# export DRUSH_LAUNCHER_FALLBACK=~/.composer/vendor/bin/drush
 
-if [ -e /home/jameschlim/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jameschlim/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# if [ -e /home/jameschlim/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jameschlim/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export LF_ICONS="\
 tw=:\

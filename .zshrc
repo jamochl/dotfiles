@@ -88,9 +88,12 @@ alias bspconf="vim ~/.config/bspwm/bspwmrc"
 alias sxhconf="vim ~/.config/sxhkd/sxhkdrc"
 alias dsxhconf="vim ~/.config/dwm/sxhkdrc"
 alias dunstconf="vim ~/.config/dunst/dunstrc"
+alias gtkconf="vim ~/.config/gtk-3.0/settings.ini"
+alias gtkcd="cd ~/.config/gtk-3.0/"
 alias dwmcd="cd ~/projects/my_dwm/"
 alias stcd="cd ~/projects/st/"
 alias opencd="cd ~/notes/coding/opencat/"
+alias lfcd="cd ~/.config/lf/"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
