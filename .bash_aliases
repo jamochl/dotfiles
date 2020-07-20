@@ -6,7 +6,7 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias vi='vim -u NONE'
 alias open="xdg-open"
-alias lf='lf -last-dir-path=$HOME/.cache/lfdir; cd $(cat $HOME/.cache/lfdir)'
+alias lf='lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir'
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
