@@ -30,7 +30,7 @@ alias stcd="cd ~/projects/st/"
 alias opencd="cd ~/notes/coding/opencat/"
 alias lfcd="cd ~/.config/lf/"
 alias haskcd="cd ~/projects/haskell/"
-alias scriptcd="cd ~/.local/scripts/"
+alias scrcd="cd ~/.local/scripts/"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

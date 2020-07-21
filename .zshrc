@@ -1,46 +1,60 @@
-# James' Zsh config - Requires oh-my-zsh
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# James' Zsh Config
+
+# Source env and aliases
 source ~/.zprofile
 source ~/.bash_aliases
-# Remove duplicates from the path
-typeset -U PATH path
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.cache/.zshhistfile
+HISTFILE=~/.cache/zsh_history
 HISTSIZE=2000
 SAVEHIST=2000
+setopt extendedglob
+unsetopt autocd beep nomatch
 
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-ZSH_THEME="gallois"
-
-export UPDATE_ZSH_DAYS=10
-COMPLETION_WAITING_DOTS="true"
-
-# Does git plugin track untracked files
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# For oh-my-zsh plugins
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd.mm.yyyy"
-
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-plugins=(git)
-
-# Sets zsh env variables, plugins etc
-source $ZSH/oh-my-zsh.sh
-
-# vi mode
+# vi mode setup
 bindkey -v
 export KEYTIMEOUT=1
 
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
+# End of lines configured by zsh-newuser-install
+#
+# The following lines were added by compinstall
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # added by the fzf installer
-if [ -e /home/jameschlim/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jameschlim/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+zstyle ':completion:*' completer _expand _complete _ignored _match _approximate
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' glob 1
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'l:|=* r:|=*' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' match-original both
+zstyle ':completion:*' max-errors 2
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' old-list never
+zstyle ':completion:*' old-menu false
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at%p%s
+zstyle ':completion:*' substitute 0
+zstyle :compinstall filename '/home/james/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+# End of lines added by compinstall
+_comp_options+=(globdots)
+
+# Manual Git Plugin
+autoload -Uz vcs_info
+precmd_functions+=( vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' check-for-staged-changes true
+zstyle ':vcs_info:git:*' enable git
+zstyle ':vcs_info:git:*' stagedstr '$'
+zstyle ':vcs_info:git:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' formats '%F{red}%u%F{cyan}%c%F{green}[%b]'
+zstyle ':vcs_info:git:*' actionformats '%F{red}%u%F{cyan}%c%F{green}[%b|%a]'
+
+# main prompt and right prompt
+RPROMPT='${vcs_info_msg_0_}'
+PS1='%F{cyan}[%~]%(?.%F{green}$.%F{red}$)%f '
 
 # Do on startup
 lent-reminder.sh
