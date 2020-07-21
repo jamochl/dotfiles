@@ -9,7 +9,7 @@ xset s 900 900
 xss-lock -- slock &
 
 while true ; do 
-    ~/bin/bar_script.sh; sleep 5;
+    ~/.local/scripts/bar_script.sh; sleep 5;
 done &
 
 while true; do

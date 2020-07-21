@@ -1,22 +1,19 @@
-# ~/.zshenv
+# ~/.zprofile on login shell
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# set PATH so it includes user's private bin and scripts if it exists
+[ -d "$HOME/bin" ] && PATH="$PATH:$HOME/bin"
+[ -d "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
+[ -d "$HOME/.local/scripts/" ] && PATH="$PATH:$HOME/.local/scripts"
 
 # PATHS
-export PATH="$HOME/.cargo/bin:$PATH"
-export GOPATH="$HOME/.go"
-export PATH="$PATH:$HOME/.go/bin"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/.npm/bin"
+[ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
+[ -d "$HOME/.go" ] && GOPATH="$HOME/.go"
+[ -d "$HOME/.go/bin" ] && PATH="$PATH:$HOME/.go/bin"
+[ -d "usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
+[ -d "$HOME/.npm/bin" ] && PATH="$PATH:$HOME/.npm/bin"
+
 export PATH
+export GOPATH
 
 # Setup colourful man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'

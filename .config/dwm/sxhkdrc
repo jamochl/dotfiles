@@ -19,8 +19,8 @@ super + alt + Escape
     slock
 
 # Network manager
-super + Menu
-    alacritty -e nmtui
+super + {_,shift +} Menu
+    alacritty -t nmtui -e {nmtui connect, nmtui}
 
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
@@ -35,7 +35,7 @@ XF86AudioMute
 
 # Access fine volume control
 shift + XF86AudioMute
-    alacritty -e alsamixer
+    alacritty -t alsamixer -e alsamixer
 
 # Music control
 {_,shift + ,super + } Pause
@@ -46,11 +46,11 @@ super + shift + {Left, Right}
 
 # Brightness control
 {_,shift + }XF86MonBrightnessUp
-    sudo $HOME/bin/backlight_control.sh up {_,1} && \
+    sudo $HOME/.local/scripts/backlight_control.sh up {_,1} && \
     bar_script.sh
 
 {_,shift + }XF86MonBrightnessDown
-    sudo $HOME/bin/backlight_control.sh down {_,1} && \
+    sudo $HOME/.local/scripts/backlight_control.sh down {_,1} && \
     bar_script.sh
 
 # Sleep (Add lockscreen)
@@ -96,7 +96,7 @@ super + r
 
 #Open File browser
 super + e
-    alacritty -e lf
+    alacritty -t lf -e lf
 
 #Open various apps
 ctrl + alt + o; {r, s, w}
@@ -104,4 +104,4 @@ ctrl + alt + o; {r, s, w}
 
 #Emoji switcher
 super + s
-    /home/jameschlim/bin/emoji_select.sh
+    emoji_select.sh

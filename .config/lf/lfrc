@@ -26,6 +26,7 @@ map gst cd ~/tmp/st/
 map gvu cd ~/projects/node/vuejs/
 map gco cd ~/.config/
 map gtr cd ~/.trash/
+map gpi cd ~/Pictures/
 
 # Selecting
 map <enter> open

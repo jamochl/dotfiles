@@ -1,6 +1,7 @@
 # James' Zsh config - Requires oh-my-zsh
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+source ~/.zprofile
 source ~/.bash_aliases
 # Remove duplicates from the path
 typeset -U PATH path
