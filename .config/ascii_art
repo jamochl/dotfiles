@@ -1,45 +1,17 @@
-       @@@@@@@@
-      @        @
-   @             @
-   @              @@
-  @
- @@
-    @@@@@@@@@@@@@
-                   -`                    james@JL-ARCH
-                  .o+`                   -------------
-                 `ooo/                   OS: Arch Linux x86_64
-                `+oooo:                  Host: UX330UAK 1.0
-               `+oooooo:                 Kernel: 5.7.9-arch1-1
-               -+oooooo+:                Uptime: 7 hours, 23 mins
-             `/:-:++oooo+:               Packages: 802 (pacman), 5 (flatpak)
-            `/++++/+++++++:              Shell: zsh 5.8
-           `/++++++++++++++:             Resolution: 1920x1080, 1920x1080
-          `/+++ooooooooooooo/`           WM: dwm
-         ./ooosssso++osssssso+`          Theme: oomox-hilda [GTK2/3]
-        .oossssso-````/ossssss+`         Icons: oomox-hilda [GTK2/3]
-       -osssssso.      :ssssssso.        Terminal: alacritty
-      :osssssss/        osssso+++.       Terminal Font: FiraCode Nerd Font
-     /ossssssss/        +ssssooo/-       CPU: Intel i7-7500U (4) @ 3.500GHz
-   `/ossssso+/:-        -:/+osssso+-     GPU: Intel HD Graphics 620
-  `+sso+:-`                 `.-/+oso:    Memory: 606MiB / 7845MiB
- `++:.                           `-/+/
- .`                                 `/
+# ascii hilda woff
+# ${c1}=5 ${c2}=2 ${c3}=3 ${c4}=14 ${c5}=15 ${c6}=4
 
-
-                    
-               //~>>
-             //*/////////\\           />>
-           ///vvvvvvvvvvvv\\\\\      /&>
-         ///vvvvvvv~~vvvvvvvvvv\\   /~/
-        //vvv---vvvvvvvvvvvvvvvv\\  \~~\
-       //vvv|@..|vvvvvvvvvvvvvvvvvvv/~~~|
- &*---/vvvvv|@..|vvvvvv~~vvvvvvvvvvv~~~~
- **+++vvvvvv|...|vvvvvvvvvvvvvvvvvv~~~/
- |+++/ vvvvvv--- vvvvvvvvvvvvvvvvv~~/
- |__/ vvvvvvvvvvvvvvvvvvvvvvvvvv///
-  ----\\vvv~vvvvvvvvvvvvvvvv~~vv///
-       \\\vvvvvv~~vvvvvvvvvvvv///
-         \\\vvvvvvvvvvvvvvv/////
-           \\\\\\\\\\\\\\//
-
-        
+              ${c2}/-~>>
+            ${c2}/${c3}/${c4}*/${c2}///${c3}/////\\          />>
+          ${c2}/${c3}//${c1}vvvvvvvvvvvv${c2}\\\\\      /&>
+        ${c2}/${c3}//${c1}vvvvvvv${c3}~~${c1}vvvvvvvvvv${c2}\\   /~/
+       ${c2}/${c3}/${c1}vvv${c6}---${c1}vvvvvvvvvvvvvvvv${c2}\\  ${c3}\~~\
+      ${c2}/${c3}/${c1}vvv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvvvvvvvvvvvvvvv${c3}/~~~
+${c4}&*${c3}---/${c1}vvvvv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvv${c3}~~${c1}vvvvvvvvvvv${c3}~~~~
+${c4}**${c3}+++${c1}vvvvvv${c6}|${c5}###${c6}|${c1}vvvvvvvvvvvvvvvvvv${c3}~~~/
+|+++/ ${c1}vvvvvv${c6}--- ${c1}vvvvvvvvvvvvvvvvv${c3}~~/
+|__/ ${c1}vvvvvvvvvvvvvvvvvvvvvvvvvv${c2}///
+ ----\\${c3}\\${c1}vvv${c3}~${c1}vvvvvvvvvvvvvvvv${c3}~~${c1}vv///
+      ${c2}\\${c3}\\\\${c1}vvvvvv${c3}~~${c1}vvvvvvvvvvvv${c2}///
+        ${c2}\\${c3}\\\\${c1}vvvvvvvvvvvvvvv${c2}/////
+          ${c2}\\${c3}\\\\\\\\\\\\\\\\\\\\\\\\\\${c2}//
