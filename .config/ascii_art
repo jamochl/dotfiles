@@ -28,18 +28,18 @@
 
                     
                //~>>
-             //*/////////\\            
-           ///            \\\\\       /\
-         ///       ~~          \\\   ~ ~
-        //   ---                \\\ ~ ~
-       //   |*00|                  ~ ~
- ^*---/     |*00|      ~~           ~
- **         |000|                  ~
- |   /       ---                  ~
- |__/                           ///
-  ----\\   ~                ~~  ///
-       \\\      ~~            ///
-         \\\               /////
+             //*/////////\\           />>
+           ///vvvvvvvvvvvv\\\\\      /&>
+         ///vvvvvvv~~vvvvvvvvvv\\   /~/
+        //vvv---vvvvvvvvvvvvvvvv\\  \~~\
+       //vvv|@..|vvvvvvvvvvvvvvvvvvv/~~~|
+ &*---/vvvvv|@..|vvvvvv~~vvvvvvvvvvv~~~~
+ **+++vvvvvv|...|vvvvvvvvvvvvvvvvvv~~~/
+ |+++/ vvvvvv--- vvvvvvvvvvvvvvvvv~~/
+ |__/ vvvvvvvvvvvvvvvvvvvvvvvvvv///
+  ----\\vvv~vvvvvvvvvvvvvvvv~~vv///
+       \\\vvvvvv~~vvvvvvvvvvvv///
+         \\\vvvvvvvvvvvvvvv/////
            \\\\\\\\\\\\\\//
 
         
