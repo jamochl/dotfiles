@@ -1,17 +1,17 @@
 # ascii hilda woff
 # ${c1}=5 ${c2}=2 ${c3}=3 ${c4}=14 ${c5}=15 ${c6}=4
 
-              ${c2}/-~>>
-            ${c2}/${c3}/${c4}*/${c2}///${c3}/////\\          />>
-          ${c2}/${c3}//${c1}vvvvvvvvvvvv${c2}\\\\\      /&>
-        ${c2}/${c3}//${c1}vvvvvvv${c3}~~${c1}vvvvvvvvvv${c2}\\   /~/
-       ${c2}/${c3}/${c1}vvv${c6}---${c1}vvvvvvvvvvvvvvvv${c2}\\  ${c3}\~~\
-      ${c2}/${c3}/${c1}vvv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvvvvvvvvvvvvvvv${c3}/~~~
-${c4}&*${c3}---/${c1}vvvvv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvv${c3}~~${c1}vvvvvvvvvvv${c3}~~~~
-${c4}**${c3}+++${c1}vvvvvv${c6}|${c5}###${c6}|${c1}vvvvvvvvvvvvvvvvvv${c3}~~~/
-|+++/ ${c1}vvvvvv${c6}--- ${c1}vvvvvvvvvvvvvvvvv${c3}~~/
-|__/ ${c1}vvvvvvvvvvvvvvvvvvvvvvvvvv${c2}///
- ----\\${c3}\\${c1}vvv${c3}~${c1}vvvvvvvvvvvvvvvv${c3}~~${c1}vv///
-      ${c2}\\${c3}\\\\${c1}vvvvvv${c3}~~${c1}vvvvvvvvvvvv${c2}///
-        ${c2}\\${c3}\\\\${c1}vvvvvvvvvvvvvvv${c2}/////
-          ${c2}\\${c3}\\\\\\\\\\\\\\\\\\\\\\\\\\${c2}//
+               ${c2}/+~>>
+             ${c2}/${c3}/${c4}*/${c2}//-${c3}---------          ${c2}/${c3}>>
+           ${c2}/${c3}+`${c1}vvvvvvvvvvvvvvv${c2}\\\      /${c3}&>
+         ${c2}/${c3}+`${c1}vvvvvv${c2}~~~${c1}vvvvvvvvvv${c2}\\   /${c3}~${c2}/
+        ${c2}/${c3}`${c1}vvv${c6}---${c1}vvvvvvvvvvvvvvvv${c2}\\  \${c3}~~${c2}\
+       ${c2}/${c3}+${c1}vv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvvvvvvvvvvvvvvv${c2}/${c3}~~~
+ ${c4}&*${c2}---/${c1}vvvv${c6}|${c4}@${c5}##${c6}|${c1}vvvvvv${c2}~~~~${c1}vvvvvvvvv${c3}~~~~
+${c2}|${c3}++++${c1}vvvvvv${c6}|${c5}###${c6}|${c1}vvvvvvvvvvvvvvvvvv${c2}~~~${c2}/
+${c2}|${c3}+++${c2}/ ${c1}vvvvvv${c6}--- ${c1}vvvvvvvvvvvvvvvvv${c2}~~~${c2}/
+${c2}|${c2}__/ ${c1}vvvvvvvvvvvvvvvvvvvvvvvvvvvv${c2}+/
+${c2}`----\\${c3}+${c1}vvv${c2}~~~${c1}vvvvvvvvvvvvvv${c2}~~${c1}vv${c2}+./
+       ${c2}\\${c3}`+${c1}vvvvvv${c2}~~~~~${c1}vvvvvvvvv${c2}+./
+         ${c2}\\${c3}`+${c1}vvvvvvvvvvvvvvv${c2}.+//
+           ${c2}\\${c3}`${c2}--________--.+/
