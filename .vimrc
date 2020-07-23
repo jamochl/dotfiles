@@ -1,10 +1,9 @@
-" VIM VARIABLES
+" {{ VIM VARIABLES }}
 syntax on
 filetype plugin on
 set background=dark
 set nocompatible
 set clipboard=unnamedplus
-set hlsearch
 set incsearch
 set number
 set relativenumber
@@ -24,9 +23,10 @@ set listchars=tab:→\ ,space:• ",trail:·,eol:¶
 set nolist
 " To speed up command execution after keypress
 set ttimeoutlen=10
+set updatetime=300
 set wildmenu
 
-" PLUGINS
+" {{ PLUGINS }}
 call plug#begin('~/.vim/plugged')
 " General usability
 Plug 'tpope/vim-surround'
@@ -39,20 +39,40 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Themes
 Plug 'morhetz/gruvbox'
-" Fuzzy file search
-Plug 'junegunn/fzf'
-" Autocompletion
-Plug 'ajh17/VimCompletesMe'
+" Fuzzy file search (Investigate)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" COC language server and autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Note taking
-Plug 'vimwiki/vimwiki'
-" HEX rgb view Colorizer broken
-" Plug 'chrisbra/Colorizer'
+" Plug 'vimwiki/vimwiki'
+" HEX rgb view 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+" {{ EXTENSION SETTINGS }}
+" COC Settings
+" Trigger completion with tab
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Vim colour highlighting
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
@@ -60,9 +80,6 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 " EXTENSION VARIABLES
 " Limelight settings
 let g:limelight_conceal_ctermfg = 'gray'
-
-" FZF Settings
-let g:fzf_layout = { 'down': '~10%' }
 
 " Nerdtree settings
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
@@ -77,10 +94,6 @@ function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
-  highlight Normal ctermfg=white
-  highlight Comment ctermfg=Blue
-  highlight Normal ctermbg=none
-
   Limelight!
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -96,15 +109,15 @@ let g:airline#extensions#tmuxline#enabled = 0
 set updatetime=1000
 
 " Setup Colourscheme
-colo gruvbox
+" colo gruvbox
 " Specific colour modifications
-highlight Normal ctermfg=White
+" highlight Normal ctermfg=White
 " Set to have green comments
-highlight Comment ctermfg=Blue
+" highlight Comment ctermfg=Blue
 " Set background none
 highlight Normal ctermbg=none
 
-" PERSONAL BINDINGS
+" {{ PERSONAL BINDINGS }}
 let mapleader = " "
 let maplocalleader = " "
 nnoremap <leader>p "0VP
@@ -116,11 +129,12 @@ nnoremap <leader>i ^
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" EXTENSION BINDINGS
+" {{ EXTENSION BINDINGS }}
 " Toggle Nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
 " Access Fuzzy finder
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-f> :Files<CR>
 " Toggle Goyo GOYO (The best writing plugin)
 nnoremap <leader>g :Goyo<CR>
 " Setup Limelight and compatibility
