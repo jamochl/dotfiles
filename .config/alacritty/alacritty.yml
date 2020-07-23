@@ -82,18 +82,18 @@ colors:
     blue:    '#6f8e61'
     magenta: '#f8dea5'
     cyan:    '#5a9d82'
-    white:   '#a76292'
+    white:   '#ffead4'
 
   # Bright colors
   bright:
-    black:   '0x373b41'
-    red:     '0xf1747c'
-    green:   '0xe3907c'
-    yellow:  '0xf0c674'
-    blue:    '0x9bbb6e'
-    magenta: '0xfedeb7'
-    cyan:    '0x73908d'
-    white:   '0xeeeeee'
+    black:   '#373b41'
+    red:     '#f1747c'
+    green:   '#e3907c'
+    yellow:  '#f0c674'
+    blue:    '#9bbb6e'
+    magenta: '#fedeb7'
+    cyan:    '#73908d'
+    white:   '#eeeeee'
 
 # Background opacity
 #

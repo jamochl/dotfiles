@@ -4,7 +4,7 @@
 
 # Toggle compositor
 super + c
-    pkill compton || compton --backend glx --vsync opengl-swc
+    pkill picom || picom
 #
 # Toggle Notifications
 super + {shift + ,_} n
@@ -20,7 +20,7 @@ super + alt + Escape
 
 # Network manager
 super + {_,shift +} Menu
-    alacritty -t nmtui -e {nmtui connect, nmtui}
+    st -t nmtui -e {nmtui connect, nmtui}
 
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
@@ -35,7 +35,7 @@ XF86AudioMute
 
 # Access fine volume control
 shift + XF86AudioMute
-    alacritty -t alsamixer -e alsamixer
+    st -t alsamixer -e alsamixer
 
 # Music control
 {_,shift + ,super + } Pause
@@ -57,24 +57,24 @@ super + shift + {Left, Right}
 XF86Sleep
     systemctl suspend
 
-# Screenshotting
+# Screenshoting
 ctrl + Print
     maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 Print
-    maim ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+    maim ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ctrl + alt + Print
     maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 alt + Print
-    maim -i $(xdotool getactivewindow) ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+    maim -i $(xdotool getactivewindow) ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ctrl + shift + Print
     maim -s | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 shift + Print
-    maim -s ~/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+    maim -s ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ## Applications ##
 #
@@ -84,19 +84,19 @@ super + t
 
 # program launcher
 super + d
-	rofi -show drun -show-icons
+	rofi -monitor -4 -show drun -show-icons
 
 # program switcher
 super + slash
-    rofi -show window -show-icons
+    rofi -monitor -4 -show window -show-icons
 
 # Open Browser
 super + r
-    brave-browser
+    brave
 
 #Open File browser
 super + e
-    alacritty -t lf -e lf
+    st -t lf -e lf
 
 #Open various apps
 ctrl + alt + o; {r, s, w}

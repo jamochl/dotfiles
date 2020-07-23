@@ -3,11 +3,6 @@
  border-style: none;
 }
 
-/* /1* remove window title from Client-Side Decorations *1/ */
-/* .solid-csd headerbar .title { */
-/*     font-size: 0; */
-/* } */
-
 /* hide extra window decorations/double border */
 window decoration {
     margin: 0;
@@ -30,7 +25,7 @@ window decoration {
 
 .header-bar {
   background-image: none;
-  background-color: #734C4F;
+  /* background-color: #734C4F; */
   box-shadow: none;
 }
 /* You may want to use this if you don't like the double title.

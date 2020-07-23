@@ -4,9 +4,13 @@ time="$(date '+%I:%M %p | %d %b %Y')"
 
 battery_capacity="$(sh $HOME/.local/scripts/system_query/battery_capacity.sh)"
 if [ ${battery_capacity%\%} -lt 20 ]; then
-    battery_capacity="!$battery_capacity"
+    battery_capacity="  !$battery_capacity"
+elif [ ${battery_capacity%\%} -lt 50 ]; then
+    battery_capacity="  $battery_capacity"
+else
+    battery_capacity="  $battery_capacity"
 fi
-battery="🔋 $battery_capacity"
+battery="$battery_capacity"
 
 pulse_status="$(pactl list sinks)"
 volume=$(echo "$pulse_status" | awk '/^\s*Volume:/ {print $5}')

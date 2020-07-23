@@ -1,16 +1,20 @@
 # ALIASES
 
 # General use
-alias doit="sudo apt update && sudo apt upgrade -y"
+alias doit="sudo pacman -Syu"
 alias mv="mv -v"
 alias cp="cp -v"
 alias vi='vim -u NONE'
 alias open="xdg-open"
 alias lf='lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir'
+alias ls='ls --color'
+alias ll='ls -lh'
+alias la='ls -lah'
+alias lss='ls --size -ah'
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
-alias aliasconf="$EDITOR ~/.bash_aliases"
+alias aliasconf="$EDITOR ~/.config/.aliasrc"
 alias zshso="source ~/.zshrc"
 alias vimconf="$EDITOR ~/.vimrc"
 alias nvimconf="$EDITOR ~/.config/nvim/init.vim"
@@ -22,12 +26,14 @@ alias dsxhconf="$EDITOR ~/.config/dwm/sxhkdrc"
 alias dunstconf="$EDITOR ~/.config/dunst/dunstrc"
 alias gtkconf="$EDITOR ~/.config/gtk-3.0/settings.ini"
 alias lfconf="$EDITOR ~/.config/lf/lfrc"
+alias xreconf="$EDITOR ~/.Xresources"
 
 # Bookmarks
 alias gtkcd="cd ~/.config/gtk-3.0/"
-alias dwmcd="cd ~/projects/my_dwm/"
-alias stcd="cd ~/projects/st/"
-alias opencd="cd ~/notes/coding/opencat/"
+alias dwmcd="cd ~/projects/suckless/my_dwm/"
+alias dmenucd="cd ~/projects/suckless/dmenu_fork/"
+alias slockcd="cd ~/projects/suckless/slock_fork//"
+alias stcd="cd ~/projects/suckless/st_fork/"
 alias lfcd="cd ~/.config/lf/"
 alias haskcd="cd ~/projects/haskell/"
 alias scrcd="cd ~/.local/scripts/"

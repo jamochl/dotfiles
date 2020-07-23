@@ -1,5 +1,5 @@
 #!/bin/sh
 
-killall compton
-setsid compton --backend glx --vsync opengl-swc
+# killall compton
+# setsid compton --backend glx --vsync opengl-swc
 notify-send 'HOTPLUG'

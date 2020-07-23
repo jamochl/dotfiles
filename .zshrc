@@ -2,7 +2,7 @@
 
 # Source env and aliases
 source ~/.zprofile
-source ~/.bash_aliases
+source ~/.config/.aliasrc
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zsh_history
@@ -10,6 +10,11 @@ HISTSIZE=2000
 SAVEHIST=2000
 setopt extendedglob
 unsetopt autocd beep nomatch
+
+setopt append_history hist_ignore_all_dups hist_ignore_space
+setopt share_history
+
+setopt glob_dots
 
 # vi mode setup
 bindkey -v
@@ -38,7 +43,6 @@ autoload -Uz compinit
 compinit
 
 # End of lines added by compinstall
-_comp_options+=(globdots)
 
 # Manual Git Plugin
 autoload -Uz vcs_info
@@ -59,3 +63,7 @@ PS1='%F{cyan}[%~]%(?.%F{green}$.%F{red}$)%f '
 # Do on startup
 lent-reminder.sh
 todo.sh
+
+# Source FZF
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
