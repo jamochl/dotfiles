@@ -10,7 +10,7 @@
 [ -d "$HOME/.go" ] && GOPATH="$HOME/.go"
 [ -d "$HOME/.go/bin" ] && PATH="$PATH:$HOME/.go/bin"
 [ -d "usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
-[ -d "$HOME/.npm/bin" ] && PATH="$PATH:$HOME/.npm/bin"
+[ -d "$HOME/.local/npm/bin" ] && PATH="$PATH:$HOME/.local/npm/bin"
 
 export PATH
 export GOPATH

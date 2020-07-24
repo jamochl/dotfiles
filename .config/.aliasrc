@@ -11,6 +11,9 @@ alias ls='ls --color'
 alias ll='ls -lh'
 alias la='ls -lah'
 alias lss='ls --size -ah'
+alias neofetch2='neofetch --ascii_colors 5 3'
+alias neofetch3='neofetch --ascii ~/.config/ascii_art --ascii_colors 11 2 5 14 15 14'
+alias neofetch4='neofetch --ascii ~/.config/ascii_art --ascii_colors 222 130 223 246 231 216'
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
@@ -30,13 +33,16 @@ alias xreconf="$EDITOR ~/.Xresources"
 
 # Bookmarks
 alias gtkcd="cd ~/.config/gtk-3.0/"
-alias dwmcd="cd ~/projects/suckless/my_dwm/"
+alias dwmcd="cd ~/projects/suckless/dwm_fork/"
 alias dmenucd="cd ~/projects/suckless/dmenu_fork/"
 alias slockcd="cd ~/projects/suckless/slock_fork//"
 alias stcd="cd ~/projects/suckless/st_fork/"
 alias lfcd="cd ~/.config/lf/"
 alias haskcd="cd ~/projects/haskell/"
-alias scrcd="cd ~/.local/scripts/"
+alias bincd="cd ~/.local/scripts/"
+alias configcd="cd ~/.config/"
+alias picd="cd ~/pictures/"
+alias vcd="cd ~/projects/vuejs/"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

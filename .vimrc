@@ -44,6 +44,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " COC language server and autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Auto Pairing
+Plug 'jiangmiao/auto-pairs'
 " Writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -94,6 +96,9 @@ function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status on
   endif
+  highlight Normal ctermfg=white
+  highlight Comment ctermfg=Blue
+  highlight Normal ctermbg=none
   Limelight!
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -109,11 +114,11 @@ let g:airline#extensions#tmuxline#enabled = 0
 set updatetime=1000
 
 " Setup Colourscheme
-" colo gruvbox
+colo gruvbox
 " Specific colour modifications
-" highlight Normal ctermfg=White
+highlight Normal ctermfg=White
 " Set to have green comments
-" highlight Comment ctermfg=Blue
+highlight Comment ctermfg=Blue
 " Set background none
 highlight Normal ctermbg=none
 

@@ -1,39 +1,28 @@
-! special
-*.foreground:   #fcfcf7
-*.background:   #231a18
+*background:  #231a18
+*foreground:  #fcfcf7
 *.cursorColor:  #fcfcf7
 
-! black
-*.color0:       #282a2e
-*.color8:       #373b41
+! Normal Colours
+*color0:  #282a2e
+*color1:  #da5b6f
+*color2:  #ba6e5b
+*color3:  #de935f
+*color4:  #6f8e61
+*color5:  #f8d3a4
+*color6:  #5a9d82
+*color7:  #f2f2f2
 
-! red
-*.color1:       #da5b6f
-*.color9:       #f1747c
+! Highlight Colours
+*color8:  #373b41
+*color9:  #f1747c
+*color10:  #e08872
+*color11:  #f0c674
+*color12:  #9bbb6e
+*color13:  #ffdeb4
+*color14:  #2ea89b
+*color15:  #f0f0f0
 
-! green
-*.color2:       #ba6e5b
-*.color10:      #e3907c
-
-! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
-
-! blue
-*.color4:       #6f8e61
-*.color12:      #9bbb6e
-
-! magenta
-*.color5:       #f8dea5
-*.color13:      #fedeb7
-
-! cyan
-*.color6:       #5a9d82
-*.color14:      #73908d
-
-! white
-*.color7:       #ffead4
-*.color15:      #eeeeee
+! Titlebar Colours
+*titlebar: #734c4f
 
 Xcursor.size : 24
-Xcursor.theme: Pop
