@@ -11,9 +11,11 @@ alias ls='ls --color'
 alias ll='ls -lh'
 alias la='ls -lah'
 alias lss='ls --size -ah'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
 alias neofetch2='neofetch --ascii_colors 5 3'
-alias neofetch3='neofetch --ascii ~/.config/ascii_art --ascii_colors 11 2 5 14 15 14'
-alias neofetch4='neofetch --ascii ~/.config/ascii_art --ascii_colors 222 130 223 246 231 216'
+alias neofetch3='neofetch --ascii .config/ascii_art2 --ascii_colors 131 222 7 246 252'
+alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 223 4'
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
