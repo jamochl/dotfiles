@@ -1,0 +1,18 @@
+               .+~>>                             -------------
+             ./**/----------.                    OS: Arch Linux x86_64
+           .+`MMMMMMMMMMMMMMM'                   Host: UX330UAK 1.0
+         .+`MMMMMM~~~MMMMMMMMM'                  Kernel: 5.7.10-arch1-1
+        /`MM---MMMMMMMMMMMMMMMM'                 Uptime: 1 hour, 8 mins
+       '+MM|@::|MMMMMMMMMMMMMMMMM`~~~~~..  .~~   Packages: 805 (pacman), 5 (flatpak)
+  &---'MMMM|@::|MMMMMM~~~~MMMMMMMM========='/    Shell: zsh 5.8
+ |^^^MMMMMMM---MMMMMMMMMMMMMMMMMM~~~~''  ```     Resolution: 1920x1080
+ |__/MMMMMMMMMMMMMMMMMMMMMMMMMMM+                WM: dwm
+ `---'MMMM~~~MMMMMMMMMMMMMM~~M+.                 Theme: oomox-jargo [GTK2/3]
+       '`+MMMMMM~~~~~MMMMMMMM+.                  Icons: oomox-jargo [GTK2/3]
+         '`+MMMMMMMMMMMMMMM.+                    Terminal: alacritty
+           '`.............+/                     Terminal Font: FiraCode Nerd Font
+                              +>___              CPU: Intel i7-7500U (4) @ 3.500GHz
+                            _/__MMM\.~~~         GPU: Intel HD Graphics 620
+                           |_MMM~MM ~'           Memory: 1207MiB / 7845MiB
+                            `+MMM~M/
+                              `````
