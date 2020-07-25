@@ -20,7 +20,7 @@ super + alt + Escape
 
 # Network manager
 super + {_,shift +} Menu
-    st -t nmtui -e {nmtui connect, nmtui}
+    kitty -1 -T nmtui -e {nmtui connect, nmtui}
 
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
@@ -35,7 +35,7 @@ XF86AudioMute
 
 # Access fine volume control
 shift + XF86AudioMute
-    st -t alsamixer -e alsamixer
+    kitty -1 -T alsamixer -e alsamixer
 
 # Music control
 {_,shift + ,super + } Pause
@@ -80,7 +80,7 @@ shift + Print
 #
 # terminal emulator
 super + t
-	alacritty
+	kitty -1
 
 # program launcher
 super + d
@@ -96,7 +96,7 @@ super + r
 
 #Open File browser
 super + e
-    st -t lf -e lf
+    kitty -1 -T lf -e lf
 
 #Open various apps
 ctrl + alt + o; {r, s, w}

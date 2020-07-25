@@ -21,12 +21,12 @@ set ifs "\n"
 
 # Bookmarks
 map gh cd ~
-map gdw cd ~/projects/my_dwm/
-map gst cd ~/tmp/st/
-map gvu cd ~/projects/node/vuejs/
+map gdw cd ~/projects/suckless/dwm_fork/
+map gst cd ~/projects/suckless/st_fork
+map gvu cd ~/projects/vuejs
 map gco cd ~/.config/
 map gtr cd ~/.trash/
-map gpi cd ~/Pictures/
+map gpi cd ~/pictures/
 
 # Selecting
 map <enter> open
@@ -53,7 +53,7 @@ cmd q quit
 
 # dedicated keys for file opener actions
 map O $mimeopen --ask $f
-map oo $mimeopen $f
+map oo $xdg-open $f
 
 # LF OPTIONS
 # leave some space at the top and the bottom of the screen
