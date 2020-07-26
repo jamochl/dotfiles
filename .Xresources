@@ -1,6 +1,6 @@
 *background:  #231a18
 *foreground:  #fcfcf7
-*.cursorColor:  #fcfcf7
+*cursorColor: #fcfcf7
 
 ! Normal Colours
 *color0:  #282a2e
@@ -15,12 +15,12 @@
 ! Highlight Colours
 *color8:  #303338
 *color9:  #f1747c
-*color10:  #e08872
-*color11:  #f0c674
-*color12:  #9bbb6e
-*color13:  #ffdeb4
-*color14:  #2ea89b
-*color15:  #f0f0f0
+*color10: #e08872
+*color11: #f0c674
+*color12: #9bbb6e
+*color13: #ffdeb4
+*color14: #2ea89b
+*color15: #f0f0f0
 
 ! Titlebar Colours
 *titlebar: #6b4047
