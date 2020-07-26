@@ -28,6 +28,8 @@ actual_backlight=$(cat /sys/class/backlight/intel_backlight/brightness)
 backlight_percent=$(( ($actual_backlight * 100) / $max_backlight ))
 backlight="☀ $backlight_percent%"
 
-memory="💿 $(sh $HOME/.local/scripts/system_query/memory_used.sh)"
+# memory="💿 $(sh $HOME/.local/scripts/system_query/memory_used.sh)"
 
-xsetroot -name " $memory | $volume | $backlight | $time | $battery "
+# xsetroot -name " $memory | $volume | $backlight | $time | $battery "
+
+xsetroot -name "$volume | $backlight | $time | $battery "

@@ -2,6 +2,10 @@
 
 ## General keys ##
 
+# alt program runner
+super + shift + p
+    rofi -window -4 -show run
+
 # Toggle compositor
 super + c
     pkill picom || picom
