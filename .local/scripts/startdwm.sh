@@ -8,9 +8,9 @@ dunst &
 xset s 900
 xss-lock -- slock &
 
-while true ; do
-    nm-applet
-done &
+# while true ; do
+#     nm-applet
+# done &
 
 while true ; do 
     ~/.local/scripts/bar_script.sh; sleep 5;
