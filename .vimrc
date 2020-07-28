@@ -166,7 +166,8 @@ augroup filetype_md
     "test commands
     autocmd BufRead,BufNewFile *.md onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\+$\rkvg_"<cr>
     autocmd BufRead,BufNewFile *.md onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\+$\rVk"<cr>
-    autocmd BufRead,BufNewFile *.md nnoremap <F5> :!mdtopdf.sh -v %<CR>
+    autocmd BufRead,BufNewFile *.md nnoremap <F5> :!mdtopdf.sh -d %<CR>
+    autocmd BufRead,BufNewFile *.md setlocal tw=80
 augroup END
 
 augroup filetype_js

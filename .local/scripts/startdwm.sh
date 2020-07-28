@@ -17,5 +17,6 @@ while true ; do
 done &
 
 while true; do
-    dwm || pkill startdwm.sh
+    # dwm || pkill startdwm.sh
+    dwm || kill 0
 done

@@ -1,29 +1,13 @@
 #!/bin/bash
-##############################################################################
 #                          markdown to pdf converter
 #
 #  Script to use Pandoc to export a Markdown file to desired PDF format
-#
-#  Change History
-#  2020-03-03 Creation
-#  [Insert New]
-#
-##############################################################################
-##############################################################################
-#
-#  Core Maintainer:  James C. H. Lim
-#  Email:            james.lim.ori@gmail.com
-#
-##############################################################################
 
-# clean up script
-##############################################################################
-# Remove any temporary files
-##############################################################################
 clean_up() {
     rm -f "${ERROR_FILE[@]}"
     rm -f "${TEMP_FILES[@]}"
 }
+
 trap clean_up EXIT
 trap 'clean_up; kill 0' SIGINT
 ERROR_FILE+=("$(mktemp)") || exit 1
@@ -47,14 +31,8 @@ HEREDOC
 
 make_pdf() {
     for file in "$@"; do
-        dir="$(dirname "$file")/PDFS"
-        base="$(basename "$file")"
-        [ -d "$dir" ] || mkdir "$dir"
-        output="$dir/${base%%.md}.pdf"
-        # There is a bug with Pandoc, it command line is too long, it will
-        # split a file name with a space in it. Therefore we use > rather than
-        # -o "$output"
-        pandoc "$file" -t pdf -V geometry:margin=2cm > "$output"
+        output="${file%%.md}.pdf"
+        pandoc "$file" -t pdf > "$output"
         echo "output: $output"
         if [[ -n $verbose ]]; then
             zathura "$output"
@@ -64,13 +42,11 @@ make_pdf() {
 
 dry_make_pdf() {
     for file in "$@"; do
-        base="$(basename "$file")"
-        dry_output="$(dirname "$file")/PDFS/${base%%.md}.pdf"
+        dry_output="${file%%.md}.pdf"
         echo "(DRY) output: $dry_output"
-
         TEMP_FILE="$(mktemp)" || exit 1
         TEMP_FILES+=("$TEMP_FILE")
-        pandoc "$file" -t pdf -V geometry:margin=2cm > "$TEMP_FILE"
+        pandoc "$file" -t pdf > "$TEMP_FILE"
         zathura "$TEMP_FILE"
     done
 }
@@ -88,15 +64,14 @@ main() {
     args=$(getopt -o dhv -l dry,help,verbose --name "$scriptname" -- "$@") 2>"$ERROR_FILE"
     #echo "$args"; exit 0
 
-    ################################################################################
     # If getopt outputs error to error variable, quit program displaying error
-    ################################################################################
     [ $? -eq 0 ] || {
         cat "$ERROR_FILE"
         echo 'Please use --help for more information'
         exit 1
     }
 
+    # set parsed args
     eval set -- "$args"
 
     while true; do
@@ -120,19 +95,20 @@ main() {
         exit 1
     fi
 
-    # Properly interpret ./ ~/ and ^\w file inputs
-    for file in "$@"; do
-        if [[ $(grep '^~/' <<< "$file") ]]; then
-            FILE+=("$HOME/$file")
-        elif [[ ! $(grep '^/' <<< "$file") ]]; then
-            FILE+=("$(pwd)/${file#./}")
-        fi
-    done
+    # # Properly interpret ./ ~/ and ^\w file inputs
+    # for file in "$@"; do
+    #     if [[ $(grep '^~/' <<< "$file") ]]; then
+    #         FILE+=("$HOME/$file")
+    #     elif [[ ! $(grep '^/' <<< "$file") ]]; then
+    #         FILE+=("$(pwd)/${file#./}")
+    #     fi
+    # done
 
     if [ -z $dry ]; then
-        make_pdf "${FILE[@]}"
+        # make_pdf "${FILE[@]}"
+        make_pdf "$@"
     else
-        dry_make_pdf "${FILE[@]}"
+        dry_make_pdf "$@"
     fi
 }
 

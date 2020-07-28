@@ -1,0 +1,10 @@
+brave-beta-bin
+dragon-drag-and-drop-git
+lf-git
+libxft-bgra
+ly
+nerd-fonts-fira-code
+numix-circle-icon-theme-git
+rambox-bin
+yay
+zoom

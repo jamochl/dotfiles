@@ -27,7 +27,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Export global vars
 export EDITOR="vim"
 export VISUAL="vim"
-export BROWSER="brave"
 export READER="zathura"
 
 export LS_COLORS="\

@@ -62,7 +62,7 @@ set dircounts
 set drawbox
 set icons
 set incsearch
-set findlen 2
+set findlen 1
 set previewer ~/.config/lf/previewer.sh
 map i $~/.config/lf/previewer.sh $f | less -R
 

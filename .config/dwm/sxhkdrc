@@ -26,6 +26,10 @@ super + alt + Escape
 super + {_,shift +} Menu
     alacritty -t nmtui -e {nmtui connect, nmtui}
 
+# System Manager
+super + Delete
+    alacritty -t htop -e htop
+
 # Show Network Manager applet
 super + ctrl + Menu
     killall nm-applet || nm-applet
@@ -42,7 +46,7 @@ XF86AudioMute
     bar_script.sh
 
 # Access fine volume control
-shift + XF86AudioMute
+super + F10
     alacritty -t alsamixer -e alsamixer
 
 # Music control
@@ -100,7 +104,7 @@ super + slash
 
 # Open Browser
 super + {_,shift +} r
-    {brave, firefox}
+    {brave-beta, firefox}
 
 #Open File browser
 super + e
