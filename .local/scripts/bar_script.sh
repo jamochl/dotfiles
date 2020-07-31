@@ -3,7 +3,7 @@
 time="$(date '+%I:%M %p | %d %b %Y')"
 
 battery_capacity="$(sh $HOME/.local/scripts/system_query/battery_capacity.sh)"
-if [ ${battery_capacity%\%} -lt 20 ]; then
+if [ ${battery_capacity%\%} -lt 25 ]; then
     battery_capacity="  !$battery_capacity"
 elif [ ${battery_capacity%\%} -lt 50 ]; then
     battery_capacity="  $battery_capacity"
@@ -15,10 +15,10 @@ battery="$battery_capacity"
 pulse_status="$(pactl list sinks)"
 volume=$(echo "$pulse_status" | awk '/^\s*Volume:/ {print $5}')
 mute_status=$(echo "$pulse_status" | awk '/^\s*Mute:/ {print $2}')
-if [ ${volume%\%} -eq 0 ]; then
-    volume="🔈 ${volume}"
-elif [ $mute_status = 'yes' ]; then
+if [ $mute_status = 'yes' ]; then
     volume="🔇 muted"
+elif [ ${volume%\%} -eq 0 ]; then
+    volume="🔈 ${volume}"
 else
     volume="🔉 ${volume}"
 fi
@@ -29,7 +29,6 @@ backlight_percent=$(( ($actual_backlight * 100) / $max_backlight ))
 backlight="☀ $backlight_percent%"
 
 # memory="💿 $(sh $HOME/.local/scripts/system_query/memory_used.sh)"
-
 # xsetroot -name " $memory | $volume | $backlight | $time | $battery "
 
 xsetroot -name "$volume | $backlight | $time | $battery "
