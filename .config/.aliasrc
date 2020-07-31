@@ -47,7 +47,8 @@ alias haskcd="cd ~/projects/haskell/"
 alias scrcd="cd ~/.local/scripts/"
 alias confcd="cd ~/.config/"
 alias piccd="cd ~/pictures/"
-alias vcd="cd ~/projects/vuejs/"
+alias vuecd="cd ~/projects/vuejs/"
+alias vthcd="cd ~/.vim/colors/"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

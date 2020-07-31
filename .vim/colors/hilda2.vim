@@ -91,7 +91,7 @@ call Color("LineNrAbove", "NONE", s:gui03, "NONE", "NONE", "3")
 hi! link LineNrBelow LineNrAbove
 hi! link CursorLineNr LineNrAbove
 call Color("ModeMsg", "NONE", s:gui03, "NONE", "NONE", "3")
-call Color("NonText", "NONE", s:gui00, "NONE", "NONE", "0")
+call Color("NonText", "NONE", s:gui12, "NONE", "NONE", "12")
 call Color("Pmenu", s:gui02, s:gui00, "NONE", "2", "0")
 call Color("PmenuSel", s:gui03, s:gui00, "NONE", "3", "0")
 call Color("PmenuSbar", s:gui00, s:gui07, "NONE", "0", "7")
