@@ -43,7 +43,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Fuzzy file search (Investigate)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" COC language server and autocomplete
+" language server and autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Auto Pairing
 Plug 'jiangmiao/auto-pairs'
@@ -148,6 +148,10 @@ augroup filtype_vimrc
 augroup END
 
 augroup filetype_md
+    let g:polyglot_disabled = ['markdown']
+    let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'js=javascript', 'json=javascript', 'python']
+    
+    "
     autocmd!
     autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
     "test commands
