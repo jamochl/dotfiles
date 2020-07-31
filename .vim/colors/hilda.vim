@@ -25,7 +25,7 @@ let s:gui04  = "#6f8e61"
 let s:gui05  = "#f8d3a4"
 let s:gui06  = "#5a9d82"
 let s:gui07  = "#f2f2f2"
-let s:gui08  = "#303338"
+let s:gui08  = "#6c6c6c"
 let s:gui09  = "#f1747c"
 let s:gui10  = "#e08872"
 let s:gui11  = "#f0c674"
@@ -65,7 +65,7 @@ call Color("Special", "NONE", s:gui10, "italic", "NONE", "10")
 call Color("Underlined", "NONE", s:gui14, "underline", "NONE", "14")
 call Color("Error", s:gui01, s:gui07, "NONE", "1", "7")
 call Color("Todo", s:gui11, s:gui00, "NONE", "11", "0")
-call Color("ColorColumn", s:gui08, "NONE", "NONE", "8", "NONE")
+call Color("ColorColumn", s:gui08, "NONE", "NONE", "245", "NONE")
 call Color("CursorLine", s:gui00, "NONE", "NONE", "0", "NONE")
 call Color("CursorColumn", s:gui08, "NONE", "NONE", "8", "NONE")
 call Color("Directory", "NONE", s:gui04, "NONE", "NONE", "4")
@@ -74,9 +74,9 @@ call Color("DiffChange", s:gui03, s:gui07, "NONE", "3", "7")
 call Color("DiffDelete", s:gui01, s:gui07, "NONE", "1", "7")
 call Color("DiffText", s:gui09, s:gui07, "NONE", "9", "7")
 hi! link ErrorMsg Error
-call Color("Folded", s:gui02, s:gui08, "italic", "2", "8")
+call Color("Folded", s:gui02, s:gui00, "italic", "2", "0")
 hi! link FoldColumn Folded
-call Color("VertSplit", s:gui08, s:gui07, "NONE", "8", "7")
+call Color("VertSplit", s:gui00, s:gui07, "NONE", "0", "7")
 call Color("LineNr", "NONE", s:gui11, "NONE", "NONE", "11")
 call Color("LineNrAbove", "NONE", s:gui03, "NONE", "NONE", "3")
 hi! link LineNrBelow LineNrAbove
@@ -91,7 +91,7 @@ call Color("Search", s:gui02, s:gui07, "NONE", "2", "7")
 call Color("SpecialKey", "NONE",s:gui07, "NONE", "NONE", "7")
 call Color("StatusLine", s:gui00, s:gui07, "bold", "0", "7")
 hi! link StatusLineTerm StatusLine
-call Color("StatusLineNC", s:gui08, s:gui15, "italic", "8", "15")
+call Color("StatusLineNC", '#3a3a3a', s:gui15, "italic", "237", "15")
 hi! link StatusLineTermNC StatusLineNC
 call Color("TabLineSel", s:gui02, s:gui07, "NONE", "2", "7")
 hi! link TabLineFill StatusLine

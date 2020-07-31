@@ -18,6 +18,8 @@ alias neofetch1='neofetch --ascii ~/.config/ascii_art --ascii_colors 6'
 alias neofetch2='neofetch --ascii_colors 5 3'
 alias neofetch3='neofetch --ascii .config/ascii_art2 --ascii_colors 131 222 7 246 252'
 alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 223 4'
+alias updateNvim="cp ~/.vimrc ~/.config/nvim/init.vim && sed -i 's#\.vim/plugged#.config/nvim/plugged#' ~/.config/nvim/init.vim"
+alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/plugged#.vim/plugged#' ~/.vimrc"
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"

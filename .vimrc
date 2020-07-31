@@ -27,6 +27,7 @@ set updatetime=300
 set wildmenu
 set laststatus=2
 set termguicolors
+set cursorline
 
 " Setup custom Colourscheme
 colo hilda

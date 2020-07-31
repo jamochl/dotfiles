@@ -13,7 +13,7 @@
 *color7:  #f2f2f2
 
 ! Highlight Colours
-*color8:  #303338
+*color8:  #6c6c6c
 *color9:  #f1747c
 *color10: #e08872
 *color11: #f0c674
@@ -24,5 +24,6 @@
 
 ! Titlebar Colours
 *titlebar: #6b4047
+*gtk_background: #303338
 
 Xcursor.size : 24
