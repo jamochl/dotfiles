@@ -19,6 +19,9 @@ set ifs "\n"
 
 # MAPPINGS #
 
+# Exit
+map <esc> quit
+
 # Bookmarks
 map gh cd ~
 map gdw cd ~/projects/suckless/dwm_fork/
@@ -34,6 +37,24 @@ map v
 map vs push :glob-select<space>*.
 map vu push :glob-unselect<space>*.
 map vv invert
+map vi :{{
+    glob-select *.jpg
+    glob-select *.JPG
+    glob-select *.jpeg
+    glob-select *.JPEG
+    glob-select *.png
+    glob-select *.PNG
+}}
+# map vo toggle ${{
+#     files=""
+#     for file in *; do
+#         mimetype=$(file --mime-type -b $file)
+#         [ $mimetype = 'image/png' ] || [ $mimetype = 'image/jpeg' ] && \
+#         files="${files}\n${file}"
+#     done
+#     echo $files;
+# }}
+map V glob-select *
 
 # Cut and Delete
 # make sure trash folder exists

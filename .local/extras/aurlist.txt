@@ -6,5 +6,7 @@ ly
 nerd-fonts-fira-code
 numix-circle-icon-theme-git
 rambox-bin
+rstudio-desktop-bin
+spotify
 yay
 zoom

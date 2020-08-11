@@ -57,6 +57,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Polyglot for syntax highlighting
 Plug 'sheerun/vim-polyglot'
+" Multiple cursors
+" Plug 'mg979/vim-visual-multi'
 " === END ===
 call plug#end()
 

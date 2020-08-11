@@ -33,24 +33,27 @@ window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
 
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
 font:
   size: 12.0
 
   normal:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
     style: Regular
 
   bold:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font Mono
     style: Bold
 
   italic:
-    family: FiraCode Nerd Font
-    style: Italic
+    family: FiraCode Nerd Font Mono
+    style: Retina
 
   bold_italic:
-    family: FiraCode Nerd Font
-    style: Bold Italic
+    family: FiraCode Nerd Font Mono
+    style: Bold Retina
 
 #
 scrolling:
@@ -106,9 +109,6 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
-
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
 
 cursor:
   # Cursor style
@@ -313,6 +313,10 @@ key_bindings:
   - { key: Subtract, mods: Control,       action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: G,        mods: Alt,           action: ScrollToBottom }
+  # - { key: J,        mods: Alt|Shift,           action: ScrollLineDown }
+  # - { key: K,        mods: Alt|Shift,           action: ScrollLineUp }
+  # - { key: U,        mods: Alt|Shift,           action: ScrollPageUp }
+  # - { key: D,        mods: Alt|Shift,           action: ScrollPageDown }
   - { key: J,        mods: Alt,           action: ScrollLineDown }
   - { key: K,        mods: Alt,           action: ScrollLineUp }
   - { key: U,        mods: Alt,           action: ScrollPageUp }

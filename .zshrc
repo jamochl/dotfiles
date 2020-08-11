@@ -2,7 +2,7 @@
 
 # Source env and aliases
 source ~/.zprofile
-source ~/.config/.aliasrc
+source ~/.config/aliasrc
 # Remove duplicates from the PATH
 typeset -U PATH
 

@@ -14,6 +14,7 @@ alias lss='ls --size -ah'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias gcam='git commit -a -m'
+alias gau='git add -u'
 alias neofetch1='neofetch --ascii ~/.config/ascii_art --ascii_colors 6'
 alias neofetch2='neofetch --ascii_colors 5 3'
 alias neofetch3='neofetch --ascii .config/ascii_art2 --ascii_colors 131 222 7 246 252'
@@ -23,9 +24,9 @@ alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
-alias aliasconf="$EDITOR ~/.config/.aliasrc"
+alias aliasconf="$EDITOR ~/.config/aliasrc"
 alias zshso="source ~/.zshrc"
-alias vimconf="$EDITOR ~/.vimrc"
+alias vimconf="vim ~/.vimrc"
 alias nvimconf="nvim ~/.config/nvim/init.vim"
 alias tmuxconf="$EDITOR ~/.tmux.conf"
 alias alaconf="$EDITOR ~/.config/alacritty/alacritty.yml"
@@ -37,6 +38,7 @@ alias dunstconf="$EDITOR ~/.config/dunst/dunstrc"
 alias gtkconf="$EDITOR ~/.config/gtk-3.0/settings.ini"
 alias lfconf="$EDITOR ~/.config/lf/lfrc"
 alias xreconf="$EDITOR ~/.Xresources"
+alias profconf="$EDITOR ~/.zprofile"
 
 # Bookmarks
 alias gtkcd="cd ~/.config/gtk-3.0/"
@@ -58,7 +60,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # FUNCTIONS
 
 # Web dev, setup a live server in local directory
-live-server() {
+liveserver() {
     if [ $# -gt 0 ]; then
         browser-sync . -w --index=$1
     else
