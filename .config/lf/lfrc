@@ -73,7 +73,7 @@ cmap <down> cmd-history-next
 cmd q quit
 
 # dedicated keys for file opener actions
-map O $mimeopen --ask $f
+# map O $mimeopen --ask $f
 map oo $xdg-open $f
 
 # LF OPTIONS

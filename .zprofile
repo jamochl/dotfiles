@@ -9,7 +9,8 @@
 [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
 [ -d "$HOME/.go" ] && GOPATH="$HOME/.go"
 [ -d "$HOME/.go/bin" ] && PATH="$PATH:$HOME/.go/bin"
-[ -d "usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
+[ -d "/usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
+[ -d "/usr/bin" ] && PATH="$PATH:/usr/bin"
 [ -d "$HOME/.local/npm/bin" ] && PATH="$PATH:$HOME/.local/npm/bin"
 
 export PATH

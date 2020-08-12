@@ -23,7 +23,7 @@ super + alt + Escape
     slock
 
 # Network manager
-super + {_,shift +} Menu
+super + {_,shift +} Control_R
     alacritty -t nmtui -e {nmtui connect, nmtui}
 
 # System Manager
@@ -31,7 +31,7 @@ super + Delete
     alacritty -t htop -e htop
 
 # Show Network Manager applet
-super + ctrl + Menu
+super + ctrl + Control_R
     killall nm-applet || nm-applet
 
 # Volume control

@@ -1,9 +1,12 @@
 #!/bin/sh
 
-cd /sys/class/backlight/intel_backlight/
+cd /sys/class/backlight/*/
 max_backlight=$(cat ./max_brightness)
 min_backlight=$(($max_backlight / 100))
 current_backlight=$(cat ./brightness)
+#echo "max: $max_backlight"
+#echo "min: $min_backlight"
+#echo "current: $current_backlight"
 
 if [ $# = 0 ]; then
     echo 'Argument up or down'
@@ -30,12 +33,12 @@ esac
 
 new_backlight=$(($current_backlight + ($max_backlight * $backlight_change) / 100))
 
-if [ $new_backlight -gt 7500 ]; then
-    backlight=7500
+if [ $new_backlight -gt $max_backlight ]; then
+    backlight=$max_backlight
 elif [ $new_backlight -lt $min_backlight ]; then
     backlight=$min_backlight
 else
     backlight=$new_backlight
 fi
 
-echo $backlight > brightness || echo 1000 > brightness
+echo $backlight > brightness || echo 5000 > brightness

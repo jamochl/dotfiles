@@ -7,8 +7,10 @@ if [ ${battery_capacity%\%} -lt 25 ]; then
     battery_capacity="  !$battery_capacity"
 elif [ ${battery_capacity%\%} -lt 50 ]; then
     battery_capacity="  $battery_capacity"
-else
+elif [ ${battery_capacity%\%} -lt 75 ]; then
     battery_capacity="  $battery_capacity"
+else
+    battery_capacity="  $battery_capacity"
 fi
 battery="$battery_capacity"
 
@@ -16,15 +18,17 @@ pulse_status="$(pactl list sinks)"
 volume=$(echo "$pulse_status" | awk '/^\s*Volume:/ {print $5}')
 mute_status=$(echo "$pulse_status" | awk '/^\s*Mute:/ {print $2}')
 if [ $mute_status = 'yes' ]; then
-    volume="🔇 muted"
+    volume=" muted"
 elif [ ${volume%\%} -eq 0 ]; then
-    volume="🔈 ${volume}"
+    volume=" ${volume}"
+elif [ ${volume%\%} -lt 20 ]; then
+    volume=" ${volume}"
 else
-    volume="🔉 ${volume}"
+    volume=" ${volume}"
 fi
 
-max_backlight=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-actual_backlight=$(cat /sys/class/backlight/intel_backlight/brightness)
+max_backlight=$(cat /sys/class/backlight/*/max_brightness)
+actual_backlight=$(cat /sys/class/backlight/*/brightness)
 backlight_percent=$(( ($actual_backlight * 100) / $max_backlight ))
 backlight="☀ $backlight_percent%"
 
