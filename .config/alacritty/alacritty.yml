@@ -48,8 +48,8 @@ font:
     style: Bold
 
   italic:
-    family: FiraCode Nerd Font Mono
-    style: Retina
+    family: Liberation Mono
+    style: Italic
 
   bold_italic:
     family: FiraCode Nerd Font Mono

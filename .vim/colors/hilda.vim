@@ -63,7 +63,7 @@ call Color("StorageClass", "NONE", s:gui02, "italic", "NONE", "2")
 hi! link Typedef StorageClass
 call Color("Special", "NONE", s:gui10, "italic", "NONE", "10")
 call Color("Underlined", "NONE", s:gui14, "underline", "NONE", "14")
-call Color("Error", s:gui01, s:gui07, "standout", "1", "7")
+call Color("Error", s:gui01, s:gui07, "NONE", "1", "7")
 call Color("Todo", s:gui11, s:gui00, "NONE", "11", "0")
 call Color("ColorColumn", s:gui08, "NONE", "NONE", "245", "NONE")
 call Color("CursorLine", s:gui00, "NONE", "NONE", "0", "NONE")
