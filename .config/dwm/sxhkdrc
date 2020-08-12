@@ -37,16 +37,16 @@ super + ctrl + Control_R
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
     percent={5,1}; \
-    pactl set-sink-mute 0 false; \
-    pactl set-sink-volume 0 {+,-}${percent}% && \
+    pactl set-sink-mute @DEFAULT_SINK@ false; \
+    pactl set-sink-volume @DEFAULT_SINK@ {+,-}${percent}% && \
     bar_script.sh
 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle && \
+    pactl set-sink-mute @DEFAULT_SINK@ toggle && \
     bar_script.sh
 
 # Access fine volume control
-super + F10
+super + F3
     alacritty -t alsamixer -e alsamixer
 
 # Music control

@@ -14,17 +14,16 @@ else
 fi
 battery="$battery_capacity"
 
-pulse_status="$(pactl list sinks)"
-volume=$(echo "$pulse_status" | awk '/^\s*Volume:/ {print $5}')
-mute_status=$(echo "$pulse_status" | awk '/^\s*Mute:/ {print $2}')
-if [ $mute_status = 'yes' ]; then
+volume=$(pamixer --get-volume)
+mute_status=$(pamixer --get-mute)
+if [ $mute_status = 'true' ]; then
     volume=" muted"
 elif [ ${volume%\%} -eq 0 ]; then
     volume=" ${volume}"
 elif [ ${volume%\%} -lt 20 ]; then
-    volume=" ${volume}"
+    volume=" ${volume}%"
 else
-    volume=" ${volume}"
+    volume=" ${volume}%"
 fi
 
 max_backlight=$(cat /sys/class/backlight/*/max_brightness)

@@ -72,10 +72,12 @@ openbsd-netcat
 openssh
 pacman
 pacman-contrib
+pamixer
 pandoc
 patch
 pavucontrol
 picom
+pipewire-pulse
 pkgconf
 playerctl
 powertop
