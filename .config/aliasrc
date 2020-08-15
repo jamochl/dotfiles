@@ -53,6 +53,7 @@ alias confcd="cd ~/.config/"
 alias piccd="cd ~/pictures/"
 alias vuecd="cd ~/projects/vuejs/"
 alias vthcd="cd ~/.vim/colors/"
+alias opencd="cd ~/projects/opencat"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

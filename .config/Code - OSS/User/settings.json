@@ -9,9 +9,10 @@
         "statusBar.debuggingBackground": "#005f5f"
     },
     "vscode-neovim.neovimPath": "/sbin/nvim",
-    "vscode-neovim.mouseSelectionStartVisualMode": true,
     "editor.lineNumbers": "relative",
     "editor.cursorSurroundingLines": 3,
     "search.showLineNumbers": true,
-    "liveServer.settings.donotShowInfoMsg": true
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.colorTheme": "Panda Syntax",
+    "workbench.iconTheme": "material-icon-theme"
 }

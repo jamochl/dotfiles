@@ -48,7 +48,6 @@ linux
 linux-firmware
 linux-lts
 lshw
-lxappearance
 m4
 maim
 make
@@ -74,6 +73,7 @@ pacman
 pacman-contrib
 pamixer
 pandoc
+paps
 patch
 pavucontrol
 picom
@@ -114,6 +114,7 @@ texlive-science
 tldr
 tlp
 tmux
+transmission-gtk
 tree
 ttf-hanazono
 ttf-linux-libertine
@@ -128,12 +129,9 @@ xclip
 xdo
 xdotool
 xf86-video-intel
-xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
-xorg-fonts-100dpi
-xorg-fonts-75dpi
 xorg-fonts-misc
 xorg-iceauth
 xorg-luit
