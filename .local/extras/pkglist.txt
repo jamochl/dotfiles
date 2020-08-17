@@ -4,6 +4,7 @@ autoconf
 autofs
 automake
 autorandr
+banner
 base
 binutils
 bison

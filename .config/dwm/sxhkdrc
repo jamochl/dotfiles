@@ -53,6 +53,10 @@ super + F3
 {_,shift + ,super + } Pause
     playerctl {play-pause, --player=spotify play-pause, --all-players pause}
 
+# Alt Music control
+XF86Audio{Play,Pause}
+    playerctl {play-pause, --all-players pause}
+
 super + shift + {Left, Right}
     playerctl {previous, next}
 
