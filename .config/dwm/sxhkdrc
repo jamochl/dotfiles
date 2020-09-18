@@ -9,7 +9,11 @@ super + shift + p
 # Toggle compositor
 super + c
     pkill picom || picom
-#
+
+# Toggle lockscreen
+super + {_,shift} + x
+    {pkill xss-lock; notify-send 'screensaver off', xss-lock -- slock &; notify-send 'screensaver on'}
+
 # Toggle Notifications
 super + {shift + ,_} n
     notify-send {'DUNST_COMMAND_PAUSE', 'DUNST_COMMAND_RESUME'; notify-send 'Notifications Resumed'}
@@ -45,6 +49,10 @@ XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle && \
     bar_script.sh
 
+# Bluetooth control
+super + {F5, F6}
+    bluetoothctl power {off && notify-send 'Bluetooth power off',on && notify-send 'Bluetooth power on'}
+
 # Access fine volume control
 super + F3
     alacritty -t alsamixer -e alsamixer
@@ -74,11 +82,12 @@ XF86Sleep
     systemctl suspend
 
 # Screenshoting
-ctrl + Print
-    maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
+ctrl + {_,super} + Print
+    flameshot {screen,full} -c
+    #maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
-Print
-    maim ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+{_,super} + Print
+    flameshot {screen,full} -p ~/pictures/screenshots
 
 ctrl + alt + Print
     maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
@@ -90,7 +99,8 @@ ctrl + shift + Print
     maim -s | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 shift + Print
-    maim -s ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+    flameshot gui -p ~/pictures/screenshots
+    #maim -s ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
 
 ## Applications ##
 #
@@ -108,7 +118,7 @@ super + slash
 
 # Open Browser
 super + {_,shift +} r
-    {brave-beta, firefox}
+    {brave, firefox}
 
 #Open File browser
 super + e

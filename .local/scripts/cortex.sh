@@ -69,27 +69,22 @@ elif [ "$numNotes" -eq 1 ]; then
     editNote "$filteredNotes"
 else
     echo 'Could not find note...'
-    if [ "$numCategory" -gt 1 ]; then
-        echo 'Could not find category...'
-        echo 'Found several categories'
-        read -p "Create new category? ($1) [N] :> " boolNew
-        boolNew="${boolNew:-N}"
-        if [ "$boolNew" = 'N' ]; then
-            exit 0
-        else
+    if [ "$numCategory" -gt 0 ]; then
+        echo "Found categories ($listCategory)"
+    fi
+    read -p "Create new category instead? ($1) [N] :> " boolNew
+    boolNew="${boolNew:-N}"
+    if [ "$boolNew" != 'N' ]; then
+        createNote "$DIR/$1" "$2"
+    else
+        if [ "$numCategory" -gt 1 ]; then
             numCategory="$(echo "$listCategory" | wc -l)"
             numChoice="$(narrowChoice "$listCategory" "$numCategory")"
             createNote "$(echo "$listCategory" | sed --quiet "${numChoice}p")" "$2"
-        fi
-    elif [ "$numCategory" -eq 1 ]; then
-        createNote "$listCategory" "$2"
-    else
-        read -p "Create new category? ($1) [N] :> " boolNew
-        boolNew="${boolNew:-N}"
-        if [ "$boolNew" = 'N' ]; then
-            exit 0
+        elif [ "$numCategory" -eq 1 ]; then
+            createNote "$listCategory" "$2"
         else
-            createNote "$DIR/$1" "$2"
+            exit 0
         fi
     fi
 fi

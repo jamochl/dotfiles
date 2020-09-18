@@ -7,11 +7,9 @@ xrandr --output eDP1 --auto --output HDMI2 --mode 1920x1080 --rate 75 --above eD
 picom &
 dunst &
 xset s 900
+xset dpms 0 0 0
 xss-lock -- slock &
-
-# while true ; do
-#     nm-applet
-# done &
+redshift &
 
 while true ; do 
     ~/.local/scripts/bar_script.sh; sleep 5;

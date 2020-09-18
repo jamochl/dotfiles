@@ -1,3 +1,4 @@
+acpi
 alacritty
 alsa-utils
 autoconf
@@ -13,17 +14,22 @@ bridge-utils
 chromium
 cmatrix
 code
+composer
 cowsay
 cups
 cups-pdf
 dmidecode
 dnsmasq
+docker
+docker-compose
 dunst
 ebtables
+exiv2
 fakeroot
 file
 findutils
 firefox
+flameshot
 flex
 fzf
 gawk
@@ -34,6 +40,7 @@ git
 gnome-calculator
 go
 gpick
+graphviz
 grep
 groff
 gtk2
@@ -41,6 +48,7 @@ gvim
 gzip
 highlight
 htop
+inkscape
 intel-ucode
 libnotify
 libreoffice-fresh
@@ -66,6 +74,7 @@ networkmanager-openvpn
 nm-connection-editor
 nodejs
 noto-fonts-emoji
+npm
 nss-mdns
 ntfs-3g
 openbsd-netcat
@@ -87,6 +96,7 @@ pulseaudio-bluetooth
 qemu
 qtile
 r
+redshift
 reflector
 rofi
 rsync
@@ -98,6 +108,7 @@ strace
 sudo
 sxhkd
 sxiv
+sysbench
 terminus-font
 texinfo
 texlive-bibtexextra
@@ -119,7 +130,6 @@ transmission-gtk
 tree
 ttf-hanazono
 ttf-linux-libertine
-ufw
 virt-manager
 virt-viewer
 vis

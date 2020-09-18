@@ -13,8 +13,11 @@
 #- Our hearts are restless until they rest in thee. - St Augustine -
 #-------------------------------------------------------------------
 
+#------------------------------------------------------------------------------
+#- What, then, will a man gain if he wins the whole world and ruins his life? -
+#------------------------------  Matthew 16:26  -------------------------------
 cat <<HEREDOC
-------------------------------------------------------------------------------
-- What, then, will a man gain if he wins the whole world and ruins his life? -
-------------------------------  Matthew 16:26  -------------------------------
+--------------------------------------------------
+- Happy is the man who spends time with the Lord -
+--------------------------------------------------
 HEREDOC

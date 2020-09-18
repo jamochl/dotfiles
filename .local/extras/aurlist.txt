@@ -1,5 +1,7 @@
-brave-beta-bin
+brave-bin
+cnijfilter2
 dragon-drag-and-drop-git
+joplin
 lf-git
 libxft-bgra
 ly

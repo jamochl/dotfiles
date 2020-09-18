@@ -12,6 +12,7 @@
 [ -d "/usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
 [ -d "/usr/bin" ] && PATH="$PATH:/usr/bin"
 [ -d "$HOME/.local/npm/bin" ] && PATH="$PATH:$HOME/.local/npm/bin"
+[ -d "$HOME/.local/share/npm/bin" ] && PATH="$PATH:$HOME/.local/share/npm/bin"
 
 export PATH
 export GOPATH

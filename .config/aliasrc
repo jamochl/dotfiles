@@ -21,16 +21,6 @@ alias neofetch3='neofetch --ascii .config/ascii_art2 --ascii_colors 131 222 7 24
 alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 223 4'
 alias updateNvim="cp ~/.vimrc ~/.config/nvim/init.vim && sed -i 's#\.vim/plugged#.config/nvim/plugged#' ~/.config/nvim/init.vim"
 alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/plugged#.vim/plugged#' ~/.vimrc"
-getfgterm() {
-    for (( i=0; i<256; i++ )); do
-        printf "\e[38;5;${i}m${i} "
-    done
-}
-getbgterm() {
-    for (( i=0; i<256; i++ )); do
-        printf "\e[48;5;${i}m${i} "
-    done
-}
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
@@ -63,7 +53,8 @@ alias confcd="cd ~/.config/"
 alias piccd="cd ~/pictures/"
 alias vuecd="cd ~/projects/vuejs/"
 alias vthcd="cd ~/.vim/colors/"
-alias opencd="cd ~/projects/opencat"
+alias opencd="cd ~/projects/web/opencat"
+alias notecd="cd ~/notes"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -79,8 +70,20 @@ liveserver() {
     fi
 }
 
+# 256 terminal colors
+getfgterm() {
+    for (( i=0; i<256; i++ )); do
+        printf "\e[38;5;${i}m${i} "
+    done
+}
+getbgterm() {
+    for (( i=0; i<256; i++ )); do
+        printf "\e[48;5;${i}m${i} "
+    done
+}
+
 # Special terminal webapp functions
-function cheat() { curl cheat.sh/$1 }
-function weather() { curl wttr.in }
-function covid() { curl -L covid19.trackercli.com/$1 }
-function dict() { curl dict://dict.org/d:$1 }
+cheat() { curl cheat.sh/$1 }
+weather() { curl wttr.in }
+covid() { curl -L covid19.trackercli.com/$1 }
+dict() { curl dict://dict.org/d:$1 }

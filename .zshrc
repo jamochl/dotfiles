@@ -14,7 +14,7 @@ setopt extendedglob
 unsetopt autocd beep nomatch
 
 setopt append_history hist_ignore_all_dups hist_ignore_space
-setopt share_history
+# setopt share_history extended_history
 
 setopt glob_dots
 

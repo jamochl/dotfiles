@@ -47,7 +47,7 @@ Plug 'junegunn/fzf.vim'
 " language server and autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Auto Pairing
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " Writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
