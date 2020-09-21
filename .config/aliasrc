@@ -6,7 +6,6 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias vi='vim -u NONE'
 alias open="xdg-open"
-alias lf='lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir'
 alias ls='ls --color'
 alias ll='ls -lh'
 alias la='ls -lah'
@@ -81,6 +80,11 @@ getbgterm() {
         printf "\e[48;5;${i}m${i} "
     done
 }
+lfs() {
+     [ ! -z "$1" ] && cd "$1"
+     lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir
+}
+# alias lf='lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir'
 
 # Special terminal webapp functions
 cheat() { curl cheat.sh/$1 }
