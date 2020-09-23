@@ -57,6 +57,7 @@ linux
 linux-firmware
 linux-lts
 lshw
+lxsession
 m4
 maim
 make
@@ -130,6 +131,7 @@ transmission-gtk
 tree
 ttf-hanazono
 ttf-linux-libertine
+udiskie
 virt-manager
 virt-viewer
 vis

@@ -70,11 +70,11 @@ super + shift + {Left, Right}
 
 # Brightness control
 {_,shift + }XF86MonBrightnessUp
-    sudo $HOME/.local/scripts/backlight_control.sh up {_,1} && \
+    sudo $HOME/.local/scripts/system_control/backlight_control.sh up {_,1} && \
     bar_script.sh
 
 {_,shift + }XF86MonBrightnessDown
-    sudo $HOME/.local/scripts/backlight_control.sh down {_,1} && \
+    sudo $HOME/.local/scripts/system_control/backlight_control.sh down {_,1} && \
     bar_script.sh
 
 # Sleep (Add lockscreen)

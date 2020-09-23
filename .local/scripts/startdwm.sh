@@ -10,6 +10,7 @@ xset s 900
 xset dpms 0 0 0
 xss-lock -- slock &
 redshift &
+udiskie &
 
 while true ; do 
     ~/.local/scripts/bar_script.sh; sleep 5;

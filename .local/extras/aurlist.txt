@@ -2,7 +2,7 @@ brave-bin
 cnijfilter2
 dragon-drag-and-drop-git
 joplin
-lf-git
+lf-bin
 libxft-bgra
 ly
 miniserve-bin
