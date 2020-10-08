@@ -4,7 +4,7 @@
 # $1 greps category, $2 greps note. If more than one, return numbered list of
 # results and when chosen, enter in vim
 
-DIR="/home/james/notesv2"
+DIR="/home/james/notes"
 
 if [ -z $2 ]; then
     echo "At least 2 args"
@@ -14,7 +14,7 @@ fi
 # $1 category, $2 notename
 createNote() {
     mkdir -p "$1"
-    vim "$1/__$2.md"
+    vim "$1/$2.md"
 }
 # $1 notepath
 editNote() {

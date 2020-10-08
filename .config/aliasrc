@@ -54,6 +54,7 @@ alias vuecd="cd ~/projects/vuejs/"
 alias vthcd="cd ~/.vim/colors/"
 alias opencd="cd ~/projects/web/opencat"
 alias notecd="cd ~/notes"
+alias virtcd="cd /var/lib/libvirt"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

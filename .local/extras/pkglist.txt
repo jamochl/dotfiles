@@ -50,6 +50,7 @@ highlight
 htop
 inkscape
 intel-ucode
+iotop
 libnotify
 libreoffice-fresh
 libtool
@@ -57,6 +58,7 @@ linux
 linux-firmware
 linux-lts
 lshw
+luit
 lxsession
 m4
 maim
@@ -66,12 +68,13 @@ man-pages
 mesa
 mlocate
 mpv
-nautilus
+nemo
 neofetch
 neovim
 network-manager-applet
 networkmanager
 networkmanager-openvpn
+nfs-utils
 nm-connection-editor
 nodejs
 noto-fonts-emoji
@@ -147,7 +150,6 @@ xorg-docs
 xorg-font-util
 xorg-fonts-misc
 xorg-iceauth
-xorg-luit
 xorg-mkfontscale
 xorg-server
 xorg-server-devel

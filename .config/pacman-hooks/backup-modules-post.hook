@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Upgrade
+Operation = Remove
+Target = linux
+
+[Action]
+Description = "Relinking Linux current Modules"
+When = PostTransaction
+Exec = /bin/sh -c '[ ! -d /usr/lib/modules/$(uname -r) ] && [ -d /usr/lib/modules/$(uname -r)-backup ] && ln -s /usr/lib/modules/$(uname -r)-backup /usr/lib/modules/$(uname -r)'

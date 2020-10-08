@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = "Updating pkglist and aurlist in .local/extras"
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qenq > /home/james/.local/extras/pkglist.txt; /usr/bin/pacman -Qemq > /home/james/.local/extras/aurlist.txt'
