@@ -18,6 +18,7 @@ composer
 cowsay
 cups
 cups-pdf
+dash
 dmidecode
 dnsmasq
 docker
@@ -48,17 +49,21 @@ gvim
 gzip
 highlight
 htop
+hugo
 inkscape
+intel-media-driver
 intel-ucode
 iotop
 libnotify
 libreoffice-fresh
 libtool
+libva-utils
 linux
 linux-firmware
 linux-lts
 lshw
 luit
+lxappearance
 lxsession
 m4
 maim
@@ -76,6 +81,7 @@ networkmanager
 networkmanager-openvpn
 nfs-utils
 nm-connection-editor
+nmap
 nodejs
 noto-fonts-emoji
 npm
@@ -97,6 +103,7 @@ playerctl
 powertop
 pulseaudio-alsa
 pulseaudio-bluetooth
+pv
 qemu
 qtile
 r
@@ -191,6 +198,7 @@ xorg-xwud
 xss-lock
 xterm
 xwallpaper
+youtube-dl
 zathura
 zathura-pdf-mupdf
 zip

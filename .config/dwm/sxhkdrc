@@ -11,7 +11,7 @@ super + c
     pkill picom || picom
 
 # Toggle lockscreen
-super + {_,shift} + x
+super + {shift,_} + x
     {pkill xss-lock; notify-send 'screensaver off', xss-lock -- slock &; notify-send 'screensaver on'}
 
 # Toggle Notifications
@@ -41,8 +41,8 @@ super + ctrl + Control_R
 # Volume control
 {_,shift + }XF86Audio{RaiseVolume,LowerVolume}
     percent={5,1}; \
-    pactl set-sink-mute @DEFAULT_SINK@ false; \
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}${percent}% && \
+    /home/james/.local/system_scripts/volume_control.sh \
+    {up,down} "$percent" && \
     bar_script.sh
 
 XF86AudioMute
@@ -70,11 +70,11 @@ super + shift + {Left, Right}
 
 # Brightness control
 {_,shift + }XF86MonBrightnessUp
-    sudo $HOME/.local/scripts/system_control/backlight_control.sh up {_,1} && \
+    sudo $HOME/.local/system_scripts/backlight_control.sh up {_,1} && \
     bar_script.sh
 
 {_,shift + }XF86MonBrightnessDown
-    sudo $HOME/.local/scripts/system_control/backlight_control.sh down {_,1} && \
+    sudo $HOME/.local/system_scripts/backlight_control.sh down {_,1} && \
     bar_script.sh
 
 # Sleep (Add lockscreen)
@@ -122,7 +122,7 @@ super + {_,shift +} r
 
 #Open File browser
 super + e
-    alacritty -t lf -e lf
+    nemo
 
 #Open various apps
 ctrl + alt + o; {r, s, w}

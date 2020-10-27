@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 clean_up() {
     rm $TEMP_FILE $TEMP_FILE2
 }

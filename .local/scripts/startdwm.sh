@@ -10,7 +10,7 @@ xset s 900 &
 xset dpms 0 0 0 &
 xss-lock -- slock &
 redshift &
-udiskie &
+udiskie -A &
 nm-applet &
 
 while true ; do 

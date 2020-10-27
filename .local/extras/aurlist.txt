@@ -8,6 +8,7 @@ ly
 miniserve-bin
 nerd-fonts-fira-code
 numix-circle-icon-theme-git
+oomox
 rambox-bin
 rstudio-desktop-bin
 spotify
