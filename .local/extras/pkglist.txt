@@ -54,6 +54,7 @@ inkscape
 intel-media-driver
 intel-ucode
 iotop
+iwd
 libnotify
 libreoffice-fresh
 libtool

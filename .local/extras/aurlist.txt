@@ -1,7 +1,6 @@
 brave-bin
 cnijfilter2
 dragon-drag-and-drop-git
-joplin
 lf-bin
 libxft-bgra
 ly
