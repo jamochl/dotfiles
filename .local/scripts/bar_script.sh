@@ -1,6 +1,6 @@
 #!/bin/sh
 
-time="$(date '+%I:%M %p | %d %b %Y')"
+time="$(date '+%I:%M %p | %a %d/%m/%Y')"
 
 battery_capacity="$(sh $HOME/.local/scripts/system_query/battery_capacity.sh)"
 if [ ${battery_capacity%\%} -lt 25 ]; then
