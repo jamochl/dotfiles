@@ -5,6 +5,13 @@ if [ ! -z "$1" ]; then
 else
     mass_date="$(date "+%Y%m%d")"
 fi
+
+cache_file="/tmp/${mass_date}_mass"
+if [ -f "$cache_file" ]; then
+    LESSSECURE=1 less "$cache_file"
+    exit
+fi
+
 html_data="$(w3m -dump "https://universalis.com/australia/${mass_date}/mass.htm")"
 linestart_pre="$(echo "$html_data" | grep -n "Hours$")"
 linestart_pre2="${linestart_pre%%:*}"
@@ -16,5 +23,5 @@ endline2="${endline%%:*}"
 endline3="$(("$endline2" - 1))"
 echo "$html_data" | sed -n "1,${linestart_pre3}p;${linestart2},${endline3}p" | sed \
     '6,$s/━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━/\n&/g' \
-| LESSSECURE=1 less
+| tee "$cache_file" | LESSSECURE=1 less
 exit 0
