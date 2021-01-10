@@ -10,6 +10,5 @@ numix-circle-icon-theme-git
 oomox
 rambox-bin
 rstudio-desktop-bin
-spotify
 yay
 zoom

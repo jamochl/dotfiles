@@ -12,7 +12,7 @@ super + c
 
 # Toggle lockscreen
 super + {shift,_} + x
-    {pkill xss-lock; notify-send 'screensaver off', xss-lock -- slock &; notify-send 'screensaver on'}
+    {xset s 0 0; notify-send 'screensaver off', xset s 900; notify-send 'screensaver on'}
 
 # Toggle Notifications
 super + {shift + ,_} n
