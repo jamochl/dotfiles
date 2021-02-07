@@ -34,6 +34,10 @@ super + {_,shift +} Control_R
 super + Delete
     alacritty -t htop -e htop
 
+# weather
+super + w
+    brave https://www.weatherzone.com.au/vic/melbourne/blackburn
+
 # Show Network Manager applet
 super + ctrl + Control_R
     killall nm-applet || nm-applet
@@ -83,11 +87,13 @@ XF86Sleep
 
 # Screenshoting
 ctrl + {_,super} + Print
-    flameshot {screen,full} -c
+    flameshot {full,full} -c
+    #flameshot {full,full} -p ~/pictures/screenshots
     #maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 {_,super} + Print
-    flameshot {screen,full} -p ~/pictures/screenshots
+    flameshot {full,full} -p ~/pictures/screenshots
+    #flameshot {full,full} -p ~/pictures/screenshots
 
 ctrl + alt + Print
     maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
@@ -121,8 +127,8 @@ super + {_,shift +} r
     {brave, firefox}
 
 #Open File browser
-super + e
-    nemo
+super + {_,shift} + e
+    {nautilus,alacritty -e lf}
 
 #Open various apps
 ctrl + alt + o; {r, s, w}

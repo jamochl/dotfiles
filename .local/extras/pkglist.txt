@@ -40,6 +40,7 @@ gettext
 gimp
 git
 gnome-calculator
+gnome-clocks
 go
 gpick
 graphviz
@@ -76,7 +77,7 @@ man-pages
 mesa
 mlocate
 mpv
-nemo
+nautilus
 neofetch
 neovim
 network-manager-applet
@@ -85,7 +86,7 @@ networkmanager-openvpn
 nfs-utils
 nm-connection-editor
 nmap
-nodejs
+nodejs-lts-fermium
 noto-fonts-emoji
 npm
 nss-mdns
@@ -114,6 +115,7 @@ reflector
 rofi
 rsync
 sed
+signal-desktop
 sl
 sqlitebrowser
 steam
@@ -200,6 +202,7 @@ xorg-xwud
 xss-lock
 xterm
 xwallpaper
+yarn
 youtube-dl
 zathura
 zathura-pdf-mupdf
