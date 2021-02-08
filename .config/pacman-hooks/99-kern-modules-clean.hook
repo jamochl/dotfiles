@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Remove
+Operation = Install
+Type = Path
+Target = usr/lib/modules/*/
+
+[Action]
+Description = Cleaning up old kernel modules
+When = PostTransaction
+Exec = /etc/pacman.d/scripts/mod_clean_arch.sh

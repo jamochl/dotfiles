@@ -3,6 +3,9 @@
 # installed) in the /usr/lib/modules directory. Necessary as I want to be able
 # to continue using the PC after a kernel update
 
+# Install in /etc/pacman.d/scripts
+# Call from a alpm path post-hook at /etc/pacman.d/hooks
+
 set -e
 
 CURRENT_KERN="$(uname -r)"
@@ -17,9 +20,9 @@ LINUX_LTS="$(pacman -Qi linux-lts | awk '/Version/ { print $3 "-lts" }')"
 OLD_MODULES="$(ls /usr/lib/modules | grep -e "$LINUX" -e "$LINUX_LTS" -e "$CURRENT_KERN" --invert-match)"
 
 cd /usr/lib/modules
-echo "Current working directory: $(pwd)"
-echo "Removing old kernel modules..."
+echo "==> Current working directory: $(pwd)"
+echo "==> Removing old kernel modules..."
 for MODULE in $OLD_MODULES; do
-    echo "Deleting $(pwd)/$MODULE"
+    echo "==> Deleting $(pwd)/$MODULE"
     sudo rm -rf "$MODULE"
 done
