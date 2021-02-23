@@ -8,7 +8,8 @@ super + shift + p
 
 # Toggle compositor
 super + c
-    pkill picom || picom
+    pkill picom && notify-send "killed compositor" || \
+    notify-send "started compositor"; picom --backend glx --vsync
 
 # Toggle lockscreen
 super + {shift,_} + x
@@ -128,7 +129,7 @@ super + {_,shift +} r
 
 #Open File browser
 super + {_,shift} + e
-    {nautilus,alacritty -e lf}
+    {pcmanfm,alacritty -e lf}
 
 #Open various apps
 ctrl + alt + o; {r, s, w}
