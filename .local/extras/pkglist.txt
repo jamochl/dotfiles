@@ -1,6 +1,7 @@
 acpi
 alacritty
 alsa-utils
+arc-solid-gtk-theme
 autoconf
 autofs
 automake
@@ -11,8 +12,11 @@ binutils
 bison
 bluez-utils
 bridge-utils
+cheese
 chromium
 cmatrix
+cockpit
+cockpit-machines
 code
 composer
 cowsay
@@ -25,11 +29,15 @@ docker
 docker-compose
 dunst
 ebtables
+edk2-ovmf
+evince
 exiv2
 fakeroot
 file
 findutils
+fio
 firefox
+firewalld
 flameshot
 flatpak
 flex
@@ -41,11 +49,13 @@ gimp
 git
 gnome-calculator
 gnome-clocks
+gnome-font-viewer
 go
 gpick
 graphviz
 grep
 groff
+gst-plugins-good
 gtk2
 gvim
 gzip
@@ -77,9 +87,9 @@ man-pages
 mesa
 mlocate
 mpv
-nautilus
 neofetch
 neovim
+net-tools
 network-manager-applet
 networkmanager
 networkmanager-openvpn
@@ -100,6 +110,8 @@ pandoc
 paps
 patch
 pavucontrol
+pcmanfm-gtk3
+peek
 picom
 pipewire-pulse
 pkgconf
@@ -114,6 +126,7 @@ redshift
 reflector
 rofi
 rsync
+rust
 sed
 signal-desktop
 sl
@@ -138,6 +151,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+thunderbird
 tldr
 tlp
 tmux
@@ -155,7 +169,6 @@ which
 xclip
 xdo
 xdotool
-xf86-video-intel
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
@@ -204,7 +217,5 @@ xterm
 xwallpaper
 yarn
 youtube-dl
-zathura
-zathura-pdf-mupdf
 zip
 zsh
