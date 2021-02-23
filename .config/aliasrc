@@ -20,7 +20,7 @@ alias neofetch3='neofetch --ascii .config/ascii_art2 --ascii_colors 131 222 7 24
 alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 223 4'
 alias updateNvim="cp ~/.vimrc ~/.config/nvim/init.vim && sed -i 's#\.vim/plugged#.config/nvim/plugged#' ~/.config/nvim/init.vim"
 alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/plugged#.vim/plugged#' ~/.vimrc"
-
+alias ip="ip -color=auto"
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
 alias aliasconf="$EDITOR ~/.config/aliasrc"
