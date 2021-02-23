@@ -3,11 +3,11 @@
 time="$(date '+%I:%M %p | %a %d/%m/%Y')"
 
 battery_capacity="$(sh $HOME/.local/scripts/system_query/battery_capacity.sh)"
-if [ ${battery_capacity%\%} -lt 25 ]; then
+if [[ ${battery_capacity%\%} -lt 25 ]]; then
     battery_capacity="  !$battery_capacity"
-elif [ ${battery_capacity%\%} -lt 50 ]; then
+elif [[ ${battery_capacity%\%} -lt 50 ]]; then
     battery_capacity="  $battery_capacity"
-elif [ ${battery_capacity%\%} -lt 75 ]; then
+elif [[ ${battery_capacity%\%} -lt 75 ]]; then
     battery_capacity="  $battery_capacity"
 else
     battery_capacity="  $battery_capacity"
@@ -16,11 +16,11 @@ battery="$battery_capacity"
 
 volume=$(pamixer --get-volume)
 mute_status=$(pamixer --get-mute)
-if [ $mute_status = 'true' ]; then
+if [[ $mute_status = 'true' ]]; then
     volume=" muted"
-elif [ ${volume%\%} -eq 0 ]; then
+elif [[ ${volume%\%} -eq 0 ]]; then
     volume=" ${volume}"
-elif [ ${volume%\%} -lt 20 ]; then
+elif [[ ${volume%\%} -lt 20 ]]; then
     volume=" ${volume}%"
 else
     volume=" ${volume}%"
