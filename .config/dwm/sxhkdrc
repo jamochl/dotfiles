@@ -87,27 +87,24 @@ XF86Sleep
     systemctl suspend
 
 # Screenshoting
-ctrl + {_,super} + Print
-    flameshot {full,full} -c
-    #flameshot {full,full} -p ~/pictures/screenshots
-    #maim | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
+Print
+    shotgun -- - | tee ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -sel clip -t image/png && notify-send 'Screenshot saved in ~/pictures and clipboard'
 
-{_,super} + Print
-    flameshot {full,full} -p ~/pictures/screenshots
-    #flameshot {full,full} -p ~/pictures/screenshots
-
-ctrl + alt + Print
-    maim -i $(xdotool getactivewindow)  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
-
-alt + Print
-    maim -i $(xdotool getactivewindow) ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
-
-ctrl + shift + Print
-    maim -s | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
+ctrl + Print
+    shotgun -- - | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
 
 shift + Print
-    flameshot gui -p ~/pictures/screenshots
-    #maim -s ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png && notify-send 'Screenshot saved'
+    shotgun $(hacksaw -f "-i %i -g %g") -- - | tee ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -sel clip -t image/png && notify-send 'Screenshot saved in ~/pictures and clipboard'
+
+ctrl + shift + Print
+    shotgun $(hacksaw -f "-i %i -g %g") -- - | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
+
+alt + Print
+    shotgun -i $(xdotool getactivewindow) -- -| tee ~/pictures/screenshots/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png | xclip -sel clip -t image/png && notify-send 'Screenshot saved in ~/pictures and clipboard'
+
+ctrl + alt + Print
+    shotgun -i $(xdotool getactivewindow) -- -  | xclip -selection clipboard -t image/png && notify-send 'Screenshot copied to clipboard'
+
 
 ## Applications ##
 #

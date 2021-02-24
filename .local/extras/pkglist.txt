@@ -59,6 +59,7 @@ gst-plugins-good
 gtk2
 gvim
 gzip
+hacksaw
 highlight
 htop
 hugo
@@ -80,7 +81,6 @@ lxappearance
 lxc
 lxsession
 m4
-maim
 make
 man-db
 man-pages
@@ -128,6 +128,7 @@ rofi
 rsync
 rust
 sed
+shotgun
 signal-desktop
 sl
 sqlitebrowser
