@@ -8,6 +8,7 @@ miniserve-bin
 nerd-fonts-fira-code
 numix-circle-icon-theme-git
 oomox
+protonmail-bridge-bin
 rambox-bin
 rstudio-desktop-bin
 yay
