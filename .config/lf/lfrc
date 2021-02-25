@@ -24,12 +24,12 @@ map <esc> quit
 
 # Bookmarks
 map gh cd ~
-map gdw cd ~/projects/suckless/dwm_fork/
-map gst cd ~/projects/suckless/st_fork
-map gvu cd ~/projects/vuejs
-map gco cd ~/.config/
-map gtr cd ~/.trash/
-map gpi cd ~/pictures/
+map gd cd ~/projects/suckless/dwm_fork/
+map gs cd ~/projects/suckless/st_fork
+map gv cd ~/projects/vuejs
+map gc cd ~/.config/
+map gt cd ~/.trash/
+map gp cd ~/pictures/
 
 # Selecting
 map <enter> open
@@ -45,6 +45,7 @@ map vi :{{
     glob-select *.png
     glob-select *.PNG
 }}
+
 # map vo toggle ${{
 #     files=""
 #     for file in *; do
@@ -66,6 +67,9 @@ map <delete> trash
 map dt trash
 map dd delete
 map dx cut
+
+# preview on off
+map <tab> preview!
 
 # CMD Commands
 cmap <up> cmd-history-prev 
@@ -111,7 +115,7 @@ cmd delete ${{
     printf "$fx\n"
     printf "delete?[Y/n]"
     read ans
-    [ $ans = "n" ] || rm -rf $fx
+    [[ $ans = "n" ]] || rm -rf $fx
 }}
 
 # extract the current file with the right command
