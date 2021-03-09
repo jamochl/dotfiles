@@ -17,6 +17,10 @@ set shellopts '-eu'
 # accordingly.
 set ifs "\n"
 
+# Set numbering for quick movement
+set number
+set relativenumber
+
 # MAPPINGS #
 
 # Exit
