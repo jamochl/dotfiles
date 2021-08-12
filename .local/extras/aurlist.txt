@@ -1,14 +1,15 @@
+autofs
 brave-bin
 cnijfilter2
 dragon-drag-and-drop-git
+ebtables
 lf-bin
 libxft-bgra
 ly
 miniserve-bin
 nerd-fonts-fira-code
 numix-circle-icon-theme-git
-oomox
-protonmail-bridge-bin
+paps
 rambox-bin
 rstudio-desktop-bin
 yay

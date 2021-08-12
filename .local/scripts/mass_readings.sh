@@ -5,6 +5,7 @@ if [ ! -z "$1" ]; then
 else
     mass_date="$(date "+%Y%m%d")"
 fi
+mass_url="https://universalis.com/australia/${mass_date}/mass.htm"
 
 cache_file="/tmp/${mass_date}_mass"
 if [ -f "$cache_file" ]; then
@@ -12,7 +13,7 @@ if [ -f "$cache_file" ]; then
     exit
 fi
 
-html_data="$(w3m -dump "https://universalis.com/australia/${mass_date}/mass.htm")"
+html_data="$mass_url | $(w3m -dump "$mass_url")"
 linestart_pre="$(echo "$html_data" | grep -n "Hours$")"
 linestart_pre2="${linestart_pre%%:*}"
 linestart_pre3="$(("$linestart_pre2" - 1))"

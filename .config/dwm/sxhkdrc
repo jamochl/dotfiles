@@ -17,7 +17,7 @@ super + {shift,_} + x
 
 # Toggle Notifications
 super + {shift + ,_} n
-    notify-send {'DUNST_COMMAND_PAUSE', 'DUNST_COMMAND_RESUME'; notify-send 'Notifications Resumed'}
+    dunstctl set-paused {true,false; notify-send 'Notifications Resumed'}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -37,7 +37,11 @@ super + Delete
 
 # weather
 super + w
-    brave https://www.weatherzone.com.au/vic/melbourne/blackburn
+    brave 'https://www.weatherzone.com.au/vic/melbourne/blackburn'
+
+# bible
+super + g
+    brave 'https://www.biblegateway.com/passage/?version=RSVCE'
 
 # Show Network Manager applet
 super + ctrl + Control_R
@@ -119,6 +123,10 @@ super + d
 # program switcher
 super + slash
     rofi -monitor -4 -show window -show-icons
+
+alt + Tab
+    rofi -monitor -4 -show window -show-icons
+
 
 # Open Browser
 super + {_,shift +} r

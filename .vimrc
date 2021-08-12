@@ -28,6 +28,7 @@ set wildmenu
 set laststatus=2
 set termguicolors
 set cursorline
+set mouse=a
 
 " Setup custom Colourscheme
 colo hilda
@@ -153,8 +154,6 @@ augroup END
 augroup filetype_md
     let g:polyglot_disabled = ['markdown']
     let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'js=javascript', 'json=javascript', 'python']
-    
-    "
     autocmd!
     autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
     "test commands
