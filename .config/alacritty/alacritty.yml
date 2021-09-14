@@ -37,7 +37,7 @@ window:
   dynamic_title: true
 
 font:
-  size: 13.0
+  size: 12.5
 
   normal:
     family: Fira Mono Medium

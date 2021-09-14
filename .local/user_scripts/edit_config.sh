@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME $@
 }
+
 cd
+
 selected_script="$(dotfiles ls-files | \
      dmenu)"
 

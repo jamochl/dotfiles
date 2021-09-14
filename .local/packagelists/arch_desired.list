@@ -15,6 +15,7 @@ gawk
 util-linux
 procps-ng
 file
+sudo
 
 # Sway Window Manager (Requires Setup)
 # https://wiki.archlinux.org/title/Sway
@@ -47,7 +48,10 @@ system-config-printer
 
 # Security (Requires setup)
 # https://wiki.archlinux.org/title/Microcode
+# https://wiki.archlinux.org/title/Polkit#Authentication_agents
 intel-ucode
+polkit
+lxsession
 
 # Sound (Requires setup)
 # https://wiki.archlinux.org/title/PipeWire
@@ -57,3 +61,20 @@ pipewire-alsa
 
 # Terminal Workflow
 gvim
+
+# Virtualisation (Requires setup)
+# https://wiki.archlinux.org/title/libvirt
+libvirt
+iptables-nft
+dnsmasq
+openbsd-netcat
+virt-manager
+edk2-ovmf
+
+# Network (Requires setup)
+# https://wiki.archlinux.org/title/NetworkManager
+networkmanager
+networkmanager-openvpn
+wireguard-tools
+nm-connection-editor
+network-manager-applet
