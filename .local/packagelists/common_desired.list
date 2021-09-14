@@ -1,0 +1,67 @@
+# Terminal Workflow
+alacritty
+zsh
+vim
+
+# Productivity
+firefox
+pandoc
+groff
+
+# Sway Window Manager
+sway
+swayidle
+swaylock
+waybar
+xdg-desktop-portal-wlr
+wofi
+kanshi
+playerctl
+udiskie
+grim
+slurp
+wl-clipboard
+
+# Useful Apps
+eog
+evince
+cheese
+gimp
+gnome-system-monitor
+gnome-calculator
+nautilus
+tmux
+tree
+
+# Theming
+lxappearance
+gcolor3
+neofetch
+
+# Laptops
+tlp
+tlp-rdw
+
+# Software Engineering
+ansible
+git
+rsync
+enscript
+podman
+docker-compose
+make
+
+# Security
+firewalld
+nmap
+
+# General
+lsb-release
+cmatrix
+cowsay
+flatpak
+fzf
+mlocate
+w3m
+wget
+curl

@@ -21,6 +21,7 @@ alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 
 alias updateNvim="cp ~/.vimrc ~/.config/nvim/init.vim && sed -i 's#\.vim/plugged#.config/nvim/plugged#' ~/.config/nvim/init.vim"
 alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/plugged#.vim/plugged#' ~/.vimrc"
 alias ip="ip -color=auto"
+
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"
 alias aliasconf="$EDITOR ~/.config/aliasrc"
@@ -41,22 +42,21 @@ alias profconf="$EDITOR ~/.zprofile"
 
 # Bookmarks
 alias gtkcd="cd ~/.config/gtk-3.0/"
-alias dwmcd="cd ~/projects/suckless/dwm_fork/"
-alias dmenucd="cd ~/projects/suckless/dmenu_fork/"
-alias slockcd="cd ~/projects/suckless/slock_fork//"
-alias stcd="cd ~/projects/suckless/st_fork/"
+alias dwmcd="cd ~/Projects/github/dwm_fork/"
+alias dmenucd="cd ~/Projects/github/dmenu_fork/"
+alias slockcd="cd ~/Projects/github/slock_fork/"
+alias stcd="cd ~/Projects/github/st_fork/"
 alias lfcd="cd ~/.config/lf/"
-alias haskcd="cd ~/projects/haskell/"
-alias scrcd="cd ~/.local/scripts/"
+alias haskcd="cd ~/Projects/haskell/"
+alias scrcd="cd ~/.local/user_scripts/"
 alias concd="cd ~/.config/"
-alias piccd="cd ~/pictures/"
-alias vuecd="cd ~/projects/vuejs/"
+alias piccd="cd ~/Pictures/"
+alias vuecd="cd ~/Projects/vuejs/"
 alias vthcd="cd ~/.vim/colors/"
-alias opencd="cd ~/projects/web/opencat"
-alias notecd="cd ~/notes"
+alias opencd="cd ~/Projects/web/opencat"
 alias vircd="cd /var/lib/libvirt"
-alias varcd="cd ~/projects/devops/opencat_varbase"
-alias sitecd="cd ~/docs/website"
+alias varcd="cd ~/Projects/devops/opencat_varbase"
+alias sitecd="cd ~/Documents/website"
 
 # Used to manage dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -83,11 +83,6 @@ getbgterm() {
         printf "\e[48;5;${i}m${i} "
     done
 }
-lfs() {
-     [ ! -z "$1" ] && cd "$1"
-     lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir
-}
-# alias lf='lf -last-dir-path=$HOME/.cache/lfdir; dir=$(cat $HOME/.cache/lfdir); cd $dir'
 
 # Special terminal webapp functions
 cheat() { curl cheat.sh/$1 }

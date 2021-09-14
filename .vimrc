@@ -33,6 +33,10 @@ set mouse=a
 " Setup custom Colourscheme
 colo hilda
 
+
+" === Polyglot settings ===
+let g:polyglot_disabled = ['markdown']
+
 " {{ PLUGINS }}
 call plug#begin('~/.vim/plugged')
 " === START ===
@@ -46,7 +50,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " language server and autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Auto Pairing
 " Plug 'jiangmiao/auto-pairs'
 " Writing plugins
@@ -55,7 +59,7 @@ Plug 'junegunn/limelight.vim'
 " Note taking
 " Plug 'vimwiki/vimwiki'
 " HEX rgb view 
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Polyglot for syntax highlighting
 Plug 'sheerun/vim-polyglot'
 " Multiple cursors

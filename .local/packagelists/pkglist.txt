@@ -23,9 +23,6 @@ cockpit-machines
 code
 composer
 cowsay
-cups
-cups-pdf
-dash
 dmidecode
 dnsmasq
 docker

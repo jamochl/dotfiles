@@ -35,7 +35,7 @@ make_pdf() {
         pandoc "$file" -t pdf > "$output"
         echo "output: $output"
         if [[ -n $verbose ]]; then
-            zathura "$output"
+            evince "$output"
         fi
     done
 }
@@ -47,7 +47,7 @@ dry_make_pdf() {
         TEMP_FILE="$(mktemp)" || exit 1
         TEMP_FILES+=("$TEMP_FILE")
         pandoc "$file" -t pdf > "$TEMP_FILE"
-        zathura "$TEMP_FILE"
+        evince "$TEMP_FILE"
     done
 }
 

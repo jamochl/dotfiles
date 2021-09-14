@@ -1,21 +1,23 @@
 # ~/.zprofile on login shell
 
-# set PATH so it includes user's private bin and scripts if it exists
-[ -d "$HOME/bin" ] && PATH="$PATH:$HOME/bin"
-[ -d "$HOME/.local/bin" ] && PATH="$PATH:$HOME/.local/bin"
-[ -d "$HOME/.local/scripts/" ] && PATH="$PATH:$HOME/.local/scripts"
+# USER PATHS
+[[ -d "$HOME/bin" ]] && PATH="$PATH:$HOME/bin"
+[[ -d "$HOME/.local/bin" ]] && PATH="$PATH:$HOME/.local/bin"
+[[ -d "$HOME/.local/user_scripts/" ]] && PATH="$PATH:$HOME/.local/user_scripts"
 
-# PATHS
-[ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
-[ -d "$HOME/.go" ] && GOPATH="$HOME/.go"
-[ -d "$HOME/.go/bin" ] && PATH="$PATH:$HOME/.go/bin"
-[ -d "/usr/local/go/bin" ] && PATH="$PATH:/usr/local/go/bin"
-[ -d "/usr/bin" ] && PATH="$PATH:/usr/bin"
-[ -d "$HOME/.local/npm/bin" ] && PATH="$PATH:$HOME/.local/npm/bin"
-[ -d "$HOME/.local/share/npm/bin" ] && PATH="$PATH:$HOME/.local/share/npm/bin"
+# LANGUAGE PATHS
+[[ -d "$HOME/.cargo/bin" ]] && PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.go" ]] && GOPATH="$HOME/.go"
+[[ -d "$HOME/.go/bin" ]] && PATH="$PATH:$HOME/.go/bin"
+[[ -d "$HOME/.local/npm/bin" ]] && PATH="$PATH:$HOME/.local/npm/bin"
+[[ -d "$HOME/.local/share/npm/bin" ]] && PATH="$PATH:$HOME/.local/share/npm/bin"
+[[ -d "/usr/local/go/bin" ]] && PATH="$PATH:/usr/local/go/bin"
+
+# SYSTEM PATHS
+[[ -d "/usr/bin" ]] && PATH="$PATH:/usr/bin"
 
 export PATH
-export GOPATH
+[[ -v $GOPATH ]] && export GOPATH
 
 # Setup colourful man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -29,7 +31,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Export global vars
 export EDITOR="vim"
 export VISUAL="vim"
-export READER="zathura"
+export READER="evince"
 
 export LS_COLORS="\
 rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:\
@@ -51,166 +53,3 @@ z=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31
 gv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36\
 :*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=0\
 0;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:";
-
-export LF_ICONS="\
-tw=:\
-st=:\
-ow=:\
-dt=:\
-di=:\
-fi=:\
-ln=:\
-or=:\
-ex=:\
-*.c=:\
-*.cc=:\
-*.clj=:\
-*.coffee=:\
-*.cpp=:\
-*.css=:\
-*.d=:\
-*.dart=:\
-*.erl=:\
-*.exs=:\
-*.fs=:\
-*.go=:\
-*.h=:\
-*.hh=:\
-*.hpp=:\
-*.hs=:\
-*.html=:\
-*.java=:\
-*.jl=:\
-*.js=:\
-*.json=:\
-*.lua=:\
-*.md=:\
-*.php=:\
-*.pl=:\
-*.pro=:\
-*.py=:\
-*.rb=:\
-*.rs=:\
-*.scala=:\
-*.ts=:\
-*.vim=:\
-*.cmd=:\
-*.ps1=:\
-*.sh=:\
-*.bash=:\
-*.zsh=:\
-*.fish=:\
-*.tar=:\
-*.tgz=:\
-*.arc=:\
-*.arj=:\
-*.taz=:\
-*.lha=:\
-*.lz4=:\
-*.lzh=:\
-*.lzma=:\
-*.tlz=:\
-*.txz=:\
-*.tzo=:\
-*.t7z=:\
-*.zip=:\
-*.z=:\
-*.dz=:\
-*.gz=:\
-*.lrz=:\
-*.lz=:\
-*.lzo=:\
-*.xz=:\
-*.zst=:\
-*.tzst=:\
-*.bz2=:\
-*.bz=:\
-*.tbz=:\
-*.tbz2=:\
-*.tz=:\
-*.deb=:\
-*.rpm=:\
-*.jar=:\
-*.war=:\
-*.ear=:\
-*.sar=:\
-*.rar=:\
-*.alz=:\
-*.ace=:\
-*.zoo=:\
-*.cpio=:\
-*.7z=:\
-*.rz=:\
-*.cab=:\
-*.wim=:\
-*.swm=:\
-*.dwm=:\
-*.esd=:\
-*.jpg=:\
-*.jpeg=:\
-*.mjpg=:\
-*.mjpeg=:\
-*.gif=:\
-*.bmp=:\
-*.pbm=:\
-*.pgm=:\
-*.ppm=:\
-*.tga=:\
-*.xbm=:\
-*.xpm=:\
-*.tif=:\
-*.tiff=:\
-*.png=:\
-*.svg=:\
-*.svgz=:\
-*.mng=:\
-*.pcx=:\
-*.mov=:\
-*.mpg=:\
-*.mpeg=:\
-*.m2v=:\
-*.mkv=:\
-*.webm=:\
-*.ogm=:\
-*.mp4=:\
-*.m4v=:\
-*.mp4v=:\
-*.vob=:\
-*.qt=:\
-*.nuv=:\
-*.wmv=:\
-*.asf=:\
-*.rm=:\
-*.rmvb=:\
-*.flc=:\
-*.avi=:\
-*.fli=:\
-*.flv=:\
-*.gl=:\
-*.dl=:\
-*.xcf=:\
-*.xwd=:\
-*.yuv=:\
-*.cgm=:\
-*.emf=:\
-*.ogv=:\
-*.ogx=:\
-*.aac=:\
-*.au=:\
-*.flac=:\
-*.m4a=:\
-*.mid=:\
-*.midi=:\
-*.mka=:\
-*.mp3=:\
-*.mpc=:\
-*.ogg=:\
-*.ra=:\
-*.wav=:\
-*.oga=:\
-*.opus=:\
-*.spx=:\
-*.xspf=:\
-*.pdf=:\
-*.nix=:\
-"

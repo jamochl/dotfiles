@@ -1,7 +1,0 @@
-tags
-.vscode/
-*~
-tmp*
-*.lock
-*jlbackup.conf
-todo.sh
