@@ -78,3 +78,6 @@ networkmanager-openvpn
 wireguard-tools
 nm-connection-editor
 network-manager-applet
+
+# Software Engineering
+github-cli
