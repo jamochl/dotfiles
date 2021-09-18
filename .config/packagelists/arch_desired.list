@@ -4,18 +4,16 @@ linux-firmware
 
 # Core-utils
 dash
-coreutils
-tar
+base
 less
-findutils
 diffutils
-grep
-sed
-gawk
-util-linux
-procps-ng
 file
 sudo
+man-db
+man-pages
+openssh
+python
+which
 
 # Sway Window Manager (Requires Setup)
 # https://wiki.archlinux.org/title/Sway

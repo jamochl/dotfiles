@@ -57,6 +57,7 @@ nmap
 
 # General
 lsb-release
+util-linux
 cmatrix
 cowsay
 flatpak
@@ -66,3 +67,4 @@ w3m
 wget
 curl
 jq
+less

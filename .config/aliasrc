@@ -42,6 +42,7 @@ alias profconf="$EDITOR ~/.zprofile"
 
 # Bookmarks
 alias gtkcd="cd ~/.config/gtk-3.0/"
+alias pkgcd="cd ~/.config/packagelists/"
 alias dwmcd="cd ~/Projects/github/dwm_fork/"
 alias dmenucd="cd ~/Projects/github/dmenu_fork/"
 alias slockcd="cd ~/Projects/github/slock_fork/"
@@ -62,6 +63,11 @@ alias sitecd="cd ~/Documents/website"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # FUNCTIONS
+
+# vscode wrappers
+code() {
+    flatpak run com.visualstudio.code $@
+}
 
 # Web dev, setup a live server in local directory
 liveserver() {
