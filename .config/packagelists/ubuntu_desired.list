@@ -19,6 +19,8 @@ pop-gtk-theme
 pop-icon-theme
 
 # Software Engineering
+python3-pip
+
 # Virtualisation
 # Requires User +kvm,libvirt groups
 qemu-kvm
