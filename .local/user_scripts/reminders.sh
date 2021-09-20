@@ -7,4 +7,4 @@ if [[ $1 == "-e" ]]; then
     exit 0
 fi
 
-cat $STATIC_FILES/reminders
+[[ -f "$STATIC_FILES/reminders" ]] && cat $STATIC_FILES/reminders
