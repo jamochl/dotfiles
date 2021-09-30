@@ -43,21 +43,14 @@ call plug#begin('~/.vim/plugged')
 " General usability
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Git and file management
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " Fuzzy file search (Investigate)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " language server and autocomplete
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Auto Pairing
-" Plug 'jiangmiao/auto-pairs'
 " Writing plugins
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" Note taking
-" Plug 'vimwiki/vimwiki'
 " HEX rgb view 
 " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 " Polyglot for syntax highlighting
@@ -75,27 +68,24 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 " === Limelight settings ===
 let g:limelight_conceal_ctermfg = 'gray'
 
-" === Nerdtree settings ===
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-
 " === COC Settings ===
 " Trigger completion with tab
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"
+"" GoTo code navigation.
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=1000
@@ -130,8 +120,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ss :w<cr>:so %<cr>
 
 " {{ EXTENSION BINDINGS }}
-" Toggle Nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
+" Toggle Side Tree
+nnoremap <C-n> :Se<CR>
 " Access Fuzzy finder
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :Files<CR>
