@@ -18,23 +18,32 @@ class DailyReadingsParser(HTMLParser):
         if self.myState == StateMachine.tagNotOpened:
             if tag == "table" and ('class', 'each') in attrs:
                 self.myState = StateMachine.tagOpened
-                self.dailyReadings.append("")
+                self.dailyReadings.append(list())
                 self.dataPos = len(self.dailyReadings) - 1
-                print("Table tag opened")
 
     def handle_data(self, data):
+        if data == "These are the readings for the memorial":
+            self.dailyReadings.append(list())
+            self.dataPos = len(self.dailyReadings) - 1
+            self.dailyReadings[self.dataPos].append(data)
         if self.myState == StateMachine.tagOpened:
-            self.dailyReadings[self.dataPos] += data + "\t"
-            print("Adding data:", data)
+            self.dailyReadings[self.dataPos].append(data)
 
     def handle_endtag(self, tag):
         if self.myState == StateMachine.tagOpened:
             if tag == "table":
                 self.myState = StateMachine.tagNotOpened
-                print("Table tag closed")
 
 
 parser = DailyReadingsParser()
 f = open("mass.htm", "r")
 
 parser.feed(f.read())
+
+print("Today's Readings\n")
+
+for readings in parser.dailyReadings:
+    if len(readings) >= 2:
+        print(f"{readings[0]:-<20}{readings[1]:->30}")
+    elif len(readings) == 1:
+        print(f"\n{readings[0]}\n")
