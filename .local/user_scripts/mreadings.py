@@ -1,5 +1,6 @@
 #!/bin/env python3
 
+import urllib.request
 from html.parser import HTMLParser
 from enum import Enum
 
@@ -36,9 +37,10 @@ class DailyReadingsParser(HTMLParser):
 
 
 parser = DailyReadingsParser()
-f = open("mass.htm", "r")
 
-parser.feed(f.read())
+f = urllib.request.urlopen('https://universalis.com/australia/20211001/mass.htm')
+
+parser.feed(f.read().decode('utf-8'))
 
 print("Today's Readings\n")
 
