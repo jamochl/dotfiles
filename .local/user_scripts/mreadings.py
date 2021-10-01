@@ -1,12 +1,14 @@
 #!/bin/env python3
 
 import urllib.request
+import os.path
 from html.parser import HTMLParser
-from enum import Enum
+from enum import Enum, auto
+from datetime import datetime
 
 class StateMachine(Enum):
-    tagNotOpened = 1
-    tagOpened = 2
+    tagNotOpened = auto()
+    tagOpened = auto()
 
 class DailyReadingsParser(HTMLParser):
     def __init__(self):
@@ -23,12 +25,10 @@ class DailyReadingsParser(HTMLParser):
                 self.dataPos = len(self.dailyReadings) - 1
 
     def handle_data(self, data):
-        if data == "These are the readings for the memorial":
-            self.dailyReadings.append(list())
-            self.dataPos = len(self.dailyReadings) - 1
-            self.dailyReadings[self.dataPos].append(data)
         if self.myState == StateMachine.tagOpened:
             self.dailyReadings[self.dataPos].append(data)
+        elif data == "These are the readings for the memorial":
+            self.dailyReadings.append([data])
 
     def handle_endtag(self, tag):
         if self.myState == StateMachine.tagOpened:
@@ -38,14 +38,19 @@ class DailyReadingsParser(HTMLParser):
 
 parser = DailyReadingsParser()
 
-f = urllib.request.urlopen('https://universalis.com/australia/20211001/mass.htm')
+mass_date = datetime.now().strftime("%Y%m%d")
+cache_file = f"/tmp/{mass_date}_mreadings"
 
-parser.feed(f.read().decode('utf-8'))
+if not os.path.exists(cache_file):
+    f = urllib.request.urlopen(f'https://universalis.com/australia/{mass_date}/mass.htm')
+    parser.feed(f.read().decode('utf-8'))
+    with open(cache_file, "w") as w:
+        w.write("Today's Readings\n\n")
+        for readings in parser.dailyReadings:
+            if len(readings) >= 2:
+                w.write(f"{readings[0]:-<20}{readings[1]:->30}\n")
+            elif len(readings) == 1:
+                w.write(f"\n{readings[0]}\n\n")
 
-print("Today's Readings\n")
-
-for readings in parser.dailyReadings:
-    if len(readings) >= 2:
-        print(f"{readings[0]:-<20}{readings[1]:->30}")
-    elif len(readings) == 1:
-        print(f"\n{readings[0]}\n")
+with open(cache_file, "r") as output:
+    print(output.read())
