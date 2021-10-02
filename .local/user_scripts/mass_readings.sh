@@ -13,16 +13,14 @@ if [ -f "$cache_file" ]; then
     exit
 fi
 
-html_data="$mass_url | $(w3m -dump "$mass_url")"
-linestart_pre="$(echo "$html_data" | grep -n "Hours$")"
-linestart_pre2="${linestart_pre%%:*}"
-linestart_pre3="$(("$linestart_pre2" - 1))"
-linestart="$(echo "$html_data" | grep -n "Readings at Mass$")"
-linestart2="${linestart%%:*}"
-endline="$(echo "$html_data" | grep -n "^The readings on this page")"
-endline2="${endline%%:*}"
-endline3="$(("$endline2" - 1))"
-echo "$html_data" | sed -n "1,${linestart_pre3}p;${linestart2},${endline3}p" | sed \
-    '6,$s/━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━/\n&/g' \
-| tee "$cache_file" | LESSSECURE=1 less
+html_data="$mass_url\n$(w3m -dump "$mass_url")"
+linestart_pre="$(echo "$html_data" | awk "/Hours$/ { print NR }")"
+linestart_pre2="$(("$linestart_pre" - 1))"
+linestart="$(echo "$html_data" | awk "/Readings at Mass$/ { print NR }")"
+endline="$(echo "$html_data" | awk "/^The readings on this page/ { print NR }")"
+endline2="$(("$endline" - 1))"
+echo -e "$html_data" | sed -n "1,${linestart_pre2}p;${linestart},${endline2}p" | \
+  sed "$linestart,\$s/^━/\\n&/g" | \
+  tee "$cache_file" | \
+  LESSSECURE=1 less
 exit 0
