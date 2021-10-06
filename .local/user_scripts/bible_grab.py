@@ -5,39 +5,72 @@ import os.path
 from html.parser import HTMLParser
 from enum import Enum, auto
 
+# div -> div -> p -> span -> JUICY DATA -> /span -> /p -> /div -> /div
+# stack unwind
+debug = 0
+
+def log(message):
+    if debug == 1:
+        print(message)
+
 class StateMachine(Enum):
-    wrapperNotOpened = auto()
-    verseNotOpened = auto()
-    verseOpened = auto()
+    topDivNotOpened = auto()
+    subDivNotOpened = auto()
+    pNotOpened = auto()
+    spanNotOpened = auto()
+    opened = auto()
 
 class bibleVerseParser(HTMLParser):
     def __init__(self):
-        self.myState = StateMachine.wrapperNotOpened
+        self.myState = StateMachine.topDivNotOpened
         self.verses = list()
+        self.pos = -1
+        self.spanIndent = 0
         super().__init__()
 
     def handle_starttag(self, tag, attrs):
-        if self.myState == StateMachine.wrapperNotOpened:
+        if self.myState == StateMachine.topDivNotOpened:
             if tag == "div" and ('class', 'version-NRSVCE result-text-style-normal text-html') in attrs:
-                print("opening div found")
-                self.myState = StateMachine.verseNotOpened
-        elif self.myState == StateMachine.verseNotOpened:
+                log("opening div found")
+                self.myState = StateMachine.subDivNotOpened
+        elif self.myState == StateMachine.subDivNotOpened:
+            if tag == "div":
+                log("sub div found")
+                self.myState = StateMachine.pNotOpened
+        elif self.myState == StateMachine.pNotOpened:
             if tag == "p" and ('class', 'line') in attrs:
-                print("verse p found")
-                self.myState = StateMachine.verseOpened
+                log("verse p found")
+                self.myState = StateMachine.spanNotOpened
+        elif self.myState == StateMachine.spanNotOpened:
+            if tag == "span":
+                log("verse span found")
+                self.verses.append(list())
+                self.pos = len(self.verses) - 1
+                self.myState = StateMachine.opened
+        elif self.myState == StateMachine.opened:
+            if tag == "span":
+                self.spanIndent += 1
 
     def handle_data(self, data):
-        if self.myState == StateMachine.verseOpened:
-            self.verses.append(data)
+        if self.myState == StateMachine.opened:
+            self.verses[self.pos].append(data)
 
     def handle_endtag(self, tag):
-        if self.myState == StateMachine.verseOpened:
-            if tag == "p":
-                self.myState = StateMachine.verseNotOpened
-        elif self.myState == StateMachine.verseNotOpened:
+        if self.myState == StateMachine.subDivNotOpened:
             if tag == "div":
-                self.myState = StateMachine.wrapperNotOpened
-
+                self.myState = StateMachine.topDivNotOpened
+        elif self.myState == StateMachine.pNotOpened:
+            if tag == "div":
+                self.myState = StateMachine.subDivNotOpened
+        elif self.myState == StateMachine.spanNotOpened:
+            if tag == "p":
+                self.myState = StateMachine.pNotOpened
+        elif self.myState == StateMachine.opened:
+            if tag == "span":
+                if self.spanIndent > 0:
+                    self.spanIndent -= 1
+                elif self.spanIndent == 0:
+                    self.myState = StateMachine.spanNotOpened
 
 parser = bibleVerseParser()
 
@@ -46,4 +79,4 @@ f = urllib.request.urlopen(f'https://www.biblegateway.com/passage/?search=Lament
 parser.feed(f.read().decode('utf-8'))
 
 for verse in parser.verses:
-    print(verse)
+    print("".join(verse))
