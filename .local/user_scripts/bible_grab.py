@@ -25,6 +25,7 @@ class bibleVerseParser(HTMLParser):
         self.myState = StateMachine.topDivNotOpened
         self.verses = list()
         self.pos = -1
+        self.firstSubDiv = True
         self.spanIndent = 0
         super().__init__()
 
@@ -64,6 +65,10 @@ class bibleVerseParser(HTMLParser):
                 self.myState = StateMachine.subDivNotOpened
         elif self.myState == StateMachine.spanNotOpened:
             if tag == "p":
+                #if self.firstSubDiv == False:
+                self.verses.append("")
+                #else:
+                #    self.firstSubDiv = False
                 self.myState = StateMachine.pNotOpened
         elif self.myState == StateMachine.opened:
             if tag == "span":
@@ -74,7 +79,7 @@ class bibleVerseParser(HTMLParser):
 
 parser = bibleVerseParser()
 
-f = urllib.request.urlopen(f'https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-24&version=NRSVCE')
+f = urllib.request.urlopen(f'https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-34&version=NRSVCE')
 
 parser.feed(f.read().decode('utf-8'))
 
