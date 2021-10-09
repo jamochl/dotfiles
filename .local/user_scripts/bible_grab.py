@@ -17,7 +17,7 @@ from enum import Enum, auto
 #       Juicy content
 #   </div or p>
 # </div>
-debug = 1
+debug = 0
 
 parser = argparse.ArgumentParser()
 parser.add_argument('chapter')
@@ -36,7 +36,7 @@ class bibleVerseParser(HTMLParser):
     def __init__(self):
         self.myState = StateMachine.topDivNotOpened
         self.verses = list()
-        self.htmlStack = list()
+        self.htmlStackDepth = 0
         self.pos = -1
         super().__init__()
 
@@ -46,28 +46,39 @@ class bibleVerseParser(HTMLParser):
                 log("opening div found")
                 self.myState = StateMachine.topDivOpened
         elif self.myState == StateMachine.topDivOpened:
-            if len(self.htmlStack) == 0:
+            if self.htmlStackDepth == 0:
+                log("valid div or p tag encountered")
                 if tag == "div" or tag == "p":
-                    self.htmlStack.append(tag)
+                    self.verses.append(list())
+                    self.pos = len(self.verses) - 1
+                    self.htmlStackDepth += 1
             else:
-                self.htmlStack.append(tag)
-            if tag == "span":
-                log("verse span found")
+                log(f"incrementing stackDepth: {self.htmlStackDepth} + 1")
+                self.htmlStackDepth += 1
+
+            if tag == "br":
+                log("br encountered")
                 self.verses.append(list())
                 self.pos = len(self.verses) - 1
 
+            if tag == "div" and ('class', 'footnotes') in attrs:
+                log("Footnotes reached, ending parse")
+                self.myState = StateMachine.topDivNotOpened
+
+
     def handle_data(self, data):
         if self.myState == StateMachine.topDivOpened:
-            if len(self.htmlStack) > 1:
+            if self.htmlStackDepth > 1:
                 self.verses[self.pos].append(data)
 
     def handle_endtag(self, tag):
         if self.myState == StateMachine.topDivOpened:
-            if len(self.htmlStack) == 1:
+            if self.htmlStackDepth == 1:
                 self.verses.append("")
-            if len(self.htmlStack) > 0:
-                self.htmlStack.pop()
-            elif len(self.htmlStack) == 0 and tag == "div":
+            if self.htmlStackDepth > 0:
+                log(f"decrementing stackDepth: {self.htmlStackDepth} - 1")
+                self.htmlStackDepth -= 1
+            elif self.htmlStackDepth == 0 and tag == "div":
                 self.myState = StateMachine.topDivNotOpened
                 log("Closing top div")
 
