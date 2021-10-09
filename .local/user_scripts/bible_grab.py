@@ -1,13 +1,28 @@
 #!/bin/env python3
 
 import urllib.request
+import urllib.parse
 import os.path
+import argparse
 from html.parser import HTMLParser
 from enum import Enum, auto
 
-# div -> div -> p -> span -> JUICY DATA -> /span -> /p -> /div -> /div
+# div -> (div ||  p) -> span -> JUICY DATA -> /span -> (/div || /p) -> /div
 # stack unwind
-debug = 0
+# <div>
+#   <div or p>
+#       Juicy content
+#   </div or p>
+#   <div or p>
+#       Juicy content
+#   </div or p>
+# </div>
+debug = 1
+
+parser = argparse.ArgumentParser()
+parser.add_argument('chapter')
+parser.add_argument('verses')
+args = parser.parse_args()
 
 def log(message):
     if debug == 1:
@@ -15,71 +30,53 @@ def log(message):
 
 class StateMachine(Enum):
     topDivNotOpened = auto()
-    subDivNotOpened = auto()
-    pNotOpened = auto()
-    spanNotOpened = auto()
-    opened = auto()
+    topDivOpened = auto()
 
 class bibleVerseParser(HTMLParser):
     def __init__(self):
         self.myState = StateMachine.topDivNotOpened
         self.verses = list()
+        self.htmlStack = list()
         self.pos = -1
-        self.firstSubDiv = True
-        self.spanIndent = 0
         super().__init__()
 
     def handle_starttag(self, tag, attrs):
         if self.myState == StateMachine.topDivNotOpened:
             if tag == "div" and ('class', 'version-NRSVCE result-text-style-normal text-html') in attrs:
                 log("opening div found")
-                self.myState = StateMachine.subDivNotOpened
-        elif self.myState == StateMachine.subDivNotOpened:
-            if tag == "div":
-                log("sub div found")
-                self.myState = StateMachine.pNotOpened
-        elif self.myState == StateMachine.pNotOpened:
-            if tag == "p" and ('class', 'line') in attrs:
-                log("verse p found")
-                self.myState = StateMachine.spanNotOpened
-        elif self.myState == StateMachine.spanNotOpened:
+                self.myState = StateMachine.topDivOpened
+        elif self.myState == StateMachine.topDivOpened:
+            if len(self.htmlStack) == 0:
+                if tag == "div" or tag == "p":
+                    self.htmlStack.append(tag)
+            else:
+                self.htmlStack.append(tag)
             if tag == "span":
                 log("verse span found")
                 self.verses.append(list())
                 self.pos = len(self.verses) - 1
-                self.myState = StateMachine.opened
-        elif self.myState == StateMachine.opened:
-            if tag == "span":
-                self.spanIndent += 1
 
     def handle_data(self, data):
-        if self.myState == StateMachine.opened:
-            self.verses[self.pos].append(data)
+        if self.myState == StateMachine.topDivOpened:
+            if len(self.htmlStack) > 1:
+                self.verses[self.pos].append(data)
 
     def handle_endtag(self, tag):
-        if self.myState == StateMachine.subDivNotOpened:
-            if tag == "div":
-                self.myState = StateMachine.topDivNotOpened
-        elif self.myState == StateMachine.pNotOpened:
-            if tag == "div":
-                self.myState = StateMachine.subDivNotOpened
-        elif self.myState == StateMachine.spanNotOpened:
-            if tag == "p":
-                #if self.firstSubDiv == False:
+        if self.myState == StateMachine.topDivOpened:
+            if len(self.htmlStack) == 1:
                 self.verses.append("")
-                #else:
-                #    self.firstSubDiv = False
-                self.myState = StateMachine.pNotOpened
-        elif self.myState == StateMachine.opened:
-            if tag == "span":
-                if self.spanIndent > 0:
-                    self.spanIndent -= 1
-                elif self.spanIndent == 0:
-                    self.myState = StateMachine.spanNotOpened
+            if len(self.htmlStack) > 0:
+                self.htmlStack.pop()
+            elif len(self.htmlStack) == 0 and tag == "div":
+                self.myState = StateMachine.topDivNotOpened
+                log("Closing top div")
 
 parser = bibleVerseParser()
 
-f = urllib.request.urlopen(f'https://www.biblegateway.com/passage/?search=Lamentations+3%3A22-34&version=NRSVCE')
+query = urllib.parse.urlencode({'search': f"{args.chapter} {args.verses}", 'version': 'nrsvce'})
+
+log(f"Calling -> https://www.biblegateway.com/passage/?{query}")
+f = urllib.request.urlopen(f"https://www.biblegateway.com/passage/?{query}")
 
 parser.feed(f.read().decode('utf-8'))
 

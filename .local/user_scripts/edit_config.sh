@@ -6,8 +6,10 @@ dotfiles() {
 
 cd
 
+menu="dmenu"
+
 selected_script="$(dotfiles ls-files | \
-     dmenu)"
+     $menu)"
 
 echo $selected_script
 
