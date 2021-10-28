@@ -113,8 +113,7 @@ nnoremap <leader>p "0VP
 nnoremap <expr> <leader>o 'm`' . v:count1 . 'o<Esc>``'
 nnoremap <expr> <leader>O 'm`' . v:count1 . 'O<Esc>``'
 nnoremap <leader>h :set hls!<CR>
-nnoremap <leader>a $
-nnoremap <leader>i ^
+nnoremap <leader>ee :e $MYVIMRC<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ss :w<cr>:so %<cr>
@@ -151,15 +150,20 @@ augroup filetype_md
     autocmd!
     autocmd BufRead,BufNewFile *.rmd setlocal filetype=rmarkdown
     "test commands
-    autocmd BufRead,BufNewFile *.md onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\+$\rkvg_"<cr>
-    autocmd BufRead,BufNewFile *.md onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\+$\rVk"<cr>
-    autocmd BufRead,BufNewFile *.md nnoremap <F5> :!mdtopdf.sh -d %<CR>
-    autocmd BufRead,BufNewFile *.md setlocal tw=75
+    autocmd BufRead,BufNewFile *.md,*.rmd onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\+$\rkvg_"<cr>
+    autocmd BufRead,BufNewFile *.md,*.rmd onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\+$\rVk"<cr>
+    autocmd BufRead,BufNewFile *.md,*.rmd nnoremap <F5> :!mdtopdf.sh -d %<CR>
+    autocmd BufRead,BufNewFile *.md,*.rmd setlocal tw=75 spell
 augroup END
 
 augroup filetype_js
     autocmd!
     autocmd BufRead,BufNewFile *.js,*.html setlocal shiftwidth=2 tabstop=2
+augroup END
+
+augroup filetype_yaml
+    autocmd!
+    autocmd BufRead,BufNewFile *.yaml setlocal shiftwidth=2 tabstop=2
 augroup END
 
 augroup filetype_html
