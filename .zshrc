@@ -8,14 +8,14 @@ typeset -U PATH
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/zsh_history
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt extendedglob
 unsetopt autocd beep nomatch
 
-setopt hist_ignore_all_dups share_history
+setopt hist_ignore_all_dups share_history inc_append_history
 
-setopt glob_dots
+# setopt glob_dots
 
 # vi mode setup
 bindkey -v
@@ -66,6 +66,10 @@ PS1='%F{cyan}[%~]%(?.%F{green}$.%F{red}$)%f '
 [[ -f '/usr/share/fzf/key-bindings.zsh' ]] && source '/usr/share/fzf/key-bindings.zsh'
 [[ -f '/usr/share/doc/fzf/examples/completion.zsh' ]] && source '/usr/share/doc/fzf/examples/completion.zsh'
 [[ -f '/usr/share/doc/fzf/examples/key-bindings.zsh' ]] && source '/usr/share/doc/fzf/examples/key-bindings.zsh'
+
+# zsh specific aliases and functions
+
+alias history="history 0"
 
 # Do on shell startup
 reminders.sh
