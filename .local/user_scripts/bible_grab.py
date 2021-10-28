@@ -6,6 +6,7 @@ import os.path
 import argparse
 from html.parser import HTMLParser
 from enum import Enum, auto
+#from textwrap import fill
 
 # div -> (div ||  p) -> span -> JUICY DATA -> /span -> (/div || /p) -> /div
 # stack unwind
@@ -53,8 +54,8 @@ class bibleVerseParser(HTMLParser):
                     self.pos = len(self.verses) - 1
                     self.htmlStackDepth += 1
             else:
-                log(f"incrementing stackDepth: {self.htmlStackDepth} + 1")
                 self.htmlStackDepth += 1
+                log(f"incrementing stackDepth: now -> {self.htmlStackDepth}")
 
             if tag == "br":
                 log("br encountered")
@@ -62,7 +63,7 @@ class bibleVerseParser(HTMLParser):
                 self.pos = len(self.verses) - 1
 
             if tag == "div" and ('class', 'footnotes') in attrs:
-                log("Footnotes reached, ending parse")
+                log("Footnotes reached, Closing top div")
                 self.myState = StateMachine.topDivNotOpened
 
 
@@ -76,8 +77,8 @@ class bibleVerseParser(HTMLParser):
             if self.htmlStackDepth == 1:
                 self.verses.append("")
             if self.htmlStackDepth > 0:
-                log(f"decrementing stackDepth: {self.htmlStackDepth} - 1")
                 self.htmlStackDepth -= 1
+                log(f"decrementing stackDepth: now -> {self.htmlStackDepth}")
             elif self.htmlStackDepth == 0 and tag == "div":
                 self.myState = StateMachine.topDivNotOpened
                 log("Closing top div")
@@ -91,5 +92,9 @@ f = urllib.request.urlopen(f"https://www.biblegateway.com/passage/?{query}")
 
 parser.feed(f.read().decode('utf-8'))
 
+readingString = ""
+
 for verse in parser.verses:
-    print("".join(verse))
+    readingString += "".join(verse) + "\n"
+
+print(readingString)
