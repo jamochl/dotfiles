@@ -28,7 +28,8 @@ set wildmenu
 set laststatus=2
 set termguicolors
 set cursorline
-set mouse=a
+set foldmethod=indent
+set mouse=
 
 " Setup custom Colourscheme
 colo hilda
