@@ -29,6 +29,7 @@ set laststatus=2
 set termguicolors
 set cursorline
 set foldmethod=indent
+set foldlevelstart=99
 set mouse=
 
 " Setup custom Colourscheme
