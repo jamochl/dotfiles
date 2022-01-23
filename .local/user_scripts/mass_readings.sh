@@ -7,17 +7,26 @@ else
 fi
 mass_url="https://universalis.com/australia/${mass_date}/mass.htm"
 
-default_width=80
-num_spaces="$((($(tput cols) - $default_width) / 2))"
-insert_string=$(python3 -c "print (' ' * $num_spaces)")
+max_width=80
+term_width=$(tput cols)
+width=0
 
-cache_file="/tmp/${mass_date}_mass"
-if [ -f "$cache_file" ]; then
-    sed "s/^/$insert_string/g" "$cache_file" | LESSSECURE=1 less
-    exit
+if [[ $term_width -ge $max_width ]]; then
+  width=$max_width
+else
+  width=$(($term_width - 2))
 fi
 
-html_data="$mass_url\n$(w3m -cols $default_width -dump "$mass_url")"
+num_spaces="$((($term_width - $width) / 2))"
+insert_string=$(python3 -c "print (' ' * $num_spaces)")
+
+cache_file="/tmp/${mass_date}_mass_$width"
+if [[ -f "$cache_file" ]]; then
+    sed "s/^/$insert_string/g" "$cache_file" | LESSSECURE=1 less
+    exit 0
+fi
+
+html_data="$mass_url\n$(w3m -cols $width -dump "$mass_url")"
 linestart_pre="$(echo "$html_data" | awk "/Hours$/ { print NR }")"
 linestart_pre2="$(("$linestart_pre" - 1))"
 linestart="$(echo "$html_data" | awk "/Readings at Mass$/ { print NR }")"
