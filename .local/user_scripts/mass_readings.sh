@@ -20,13 +20,12 @@ fi
 num_spaces="$((($term_width - $width) / 2))"
 insert_string=$(python3 -c "print (' ' * $num_spaces)")
 
-cache_file="/tmp/${mass_date}_mass_$width"
-if [[ -f "$cache_file" ]]; then
-    sed "s/^/$insert_string/g" "$cache_file" | LESSSECURE=1 less
-    exit 0
+cache_file="/tmp/${mass_date}_mass.html"
+if [[ ! -f "$cache_file" ]]; then
+   curl --silent $mass_url -o $cache_file
 fi
 
-html_data="$mass_url\n$(w3m -cols $width -dump "$mass_url")"
+html_data="$mass_url\n$(w3m -cols $width -dump "$cache_file")"
 linestart_pre="$(echo "$html_data" | awk "/Hours$/ { print NR }")"
 linestart_pre2="$(("$linestart_pre" - 1))"
 linestart="$(echo "$html_data" | awk "/Readings at Mass$/ { print NR }")"
@@ -34,7 +33,6 @@ endline="$(echo "$html_data" | awk "/^The readings on this page/ { print NR }")"
 endline2="$(("$endline" - 1))"
 echo -e "$html_data" | sed -n "1,${linestart_pre2}p;${linestart},${endline2}p" | \
   sed "$linestart,\$s/^━/\\n&/g" | \
-  tee "$cache_file" | \
   sed "s/^/$insert_string/g" | \
   LESSSECURE=1 less
 exit 0
