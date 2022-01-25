@@ -10,11 +10,12 @@ mass_url="https://universalis.com/australia/${mass_date}/mass.htm"
 max_width=80
 term_width=$(tput cols)
 width=0
+padding=3
 
 if [[ $term_width -ge $max_width ]]; then
   width=$max_width
 else
-  width=$(($term_width - 2))
+  width=$(($term_width - ($padding * 2)))
 fi
 
 num_spaces="$((($term_width - $width) / 2))"
