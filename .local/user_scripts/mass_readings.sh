@@ -20,7 +20,10 @@ fi
 num_spaces="$((($term_width - $width) / 2))"
 insert_string=$(python3 -c "print (' ' * $num_spaces)")
 
-cache_file="/tmp/${mass_date}_mass.html"
+cache_prefix="$HOME/.mass_readings" 
+mkdir --verbose --parents "$cache_prefix"
+
+cache_file="$cache_prefix/${mass_date}_mass.html"
 if [[ ! -f "$cache_file" ]]; then
    curl --silent $mass_url -o $cache_file
 fi
