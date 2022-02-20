@@ -100,7 +100,7 @@ for verse in parser.verses:
 
 def cleanString(string):
     stripedString = string.strip()
-    removedDigits = re.sub("\s*\d\s*", "", stripedString)
+    removedDigits = re.sub("\d\s*", "", stripedString)
     removedRefs = re.sub("\[.*\]", "", removedDigits)
     return removedRefs
 
