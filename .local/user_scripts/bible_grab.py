@@ -4,6 +4,7 @@ import urllib.request
 import urllib.parse
 import os.path
 import argparse
+import re
 from html.parser import HTMLParser
 from enum import Enum, auto
 #from textwrap import fill
@@ -97,4 +98,12 @@ readingString = ""
 for verse in parser.verses:
     readingString += "".join(verse) + "\n"
 
-print(readingString)
+def cleanString(string):
+    stripedString = string.strip()
+    removedDigits = re.sub("\s*\d\s*", "", stripedString)
+    removedRefs = re.sub("\[.*\]", "", removedDigits)
+    return removedRefs
+
+parsedReadingString = cleanString(readingString)
+
+print(parsedReadingString)
