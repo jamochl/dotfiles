@@ -3,7 +3,7 @@ syntax on
 filetype plugin on
 set background=dark
 set nocompatible
-set clipboard=unnamedplus
+set clipboard=unnamed
 set incsearch
 set number
 set relativenumber
@@ -33,7 +33,8 @@ set foldlevelstart=99
 set mouse=
 
 " Setup custom Colourscheme
-colo hilda
+" colo hilda
+colo elflord
 
 
 " === Polyglot settings ===

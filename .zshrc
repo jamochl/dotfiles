@@ -3,6 +3,7 @@
 # Source env and aliases
 source ~/.zprofile
 source ~/.config/aliasrc
+source ~/.zsecrets
 # Remove duplicates from the PATH
 typeset -U PATH
 
@@ -61,15 +62,8 @@ zstyle ':vcs_info:git:*' actionformats '%F{red}%u%F{cyan}%c%F{green}[%b|%a]'
 RPROMPT='${vcs_info_msg_0_}'
 PS1='%F{cyan}[%~]%(?.%F{green}$.%F{red}$)%f '
 
-# Source FZF
-[[ -f '/usr/share/fzf/completion.zsh' ]] && source '/usr/share/fzf/completion.zsh'
-[[ -f '/usr/share/fzf/key-bindings.zsh' ]] && source '/usr/share/fzf/key-bindings.zsh'
-[[ -f '/usr/share/doc/fzf/examples/completion.zsh' ]] && source '/usr/share/doc/fzf/examples/completion.zsh'
-[[ -f '/usr/share/doc/fzf/examples/key-bindings.zsh' ]] && source '/usr/share/doc/fzf/examples/key-bindings.zsh'
-
-# zsh specific aliases and functions
-
 alias history="history 0"
 
 # Do on shell startup
 reminders.sh
+. "/Users/james/.acme.sh/acme.sh.env"

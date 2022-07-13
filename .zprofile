@@ -12,12 +12,19 @@
 [[ -d "$HOME/.local/npm/bin" ]] && PATH="$PATH:$HOME/.local/npm/bin"
 [[ -d "$HOME/.local/share/npm/bin" ]] && PATH="$PATH:$HOME/.local/share/npm/bin"
 [[ -d "/usr/local/go/bin" ]] && PATH="$PATH:/usr/local/go/bin"
+[[ -d "/opt/homebrew/opt/openjdk@11/bin" ]] && PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"; export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+[[ -d "$HOME/Library/Python/3.8/bin" ]] && PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
 # SYSTEM PATHS
 [[ -d "/usr/bin" ]] && PATH="$PATH:/usr/bin"
 
 export PATH
 [[ -v $GOPATH ]] && export GOPATH
+
+export {no_proxy,NO_PROXY}="*"
+
+# export LC_ALL=C
+# export LANG=C
 
 # Setup colourful man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -53,3 +60,18 @@ z=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31
 gv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36\
 :*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=0\
 0;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:";
+
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Source FZF
+[[ -f '/usr/share/fzf/completion.zsh' ]] && source '/usr/share/fzf/completion.zsh'
+[[ -f '/usr/share/fzf/key-bindings.zsh' ]] && source '/usr/share/fzf/key-bindings.zsh'
+[[ -f '/usr/share/doc/fzf/examples/completion.zsh' ]] && source '/usr/share/doc/fzf/examples/completion.zsh'
+[[ -f '/usr/share/doc/fzf/examples/key-bindings.zsh' ]] && source '/usr/share/doc/fzf/examples/key-bindings.zsh'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Source jenv
+which jenv &> /dev/null && eval "$(jenv init -)"
