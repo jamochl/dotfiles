@@ -34,7 +34,7 @@ set mouse=
 
 " Setup custom Colourscheme
 " colo hilda
-colo elflord
+colo desert
 
 
 " === Polyglot settings ===

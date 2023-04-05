@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 if [ ! -z "$1" ]; then
     mass_date="$(date -d "$1 day" "+%Y%m%d")"
 else
@@ -31,13 +32,17 @@ if [[ ! -f "$cache_file" ]]; then
 fi
 
 html_data="$mass_url\n$(w3m -cols $width -dump "$cache_file")"
-linestart_pre="$(echo "$html_data" | awk "/Hours$/ { print NR }")"
-linestart_pre2="$(($linestart_pre - 1))"
-linestart="$(echo "$html_data" | awk "/Readings at Mass$/ { print NR }")"
-endline="$(echo "$html_data" | awk "/^The Creed in Slow Motion$/ { print NR }")"
-endline2="$(($endline - 1))"
-echo -e "$html_data" | sed -n "1,${linestart_pre2}p;${linestart},${endline2}p" | \
-  sed "$linestart,\$s/^━/\\n&/g" | \
-  sed "s/^/$insert_string/g" | \
-  LESSSECURE=1 less
-exit 0
+
+# linestart_pre="$(echo "$html_data" | awk "/Hours$/ { print NR }")"
+# linestart_pre2="$(($linestart_pre - 1))"
+# linestart="$(echo "$html_data" | awk "/Readings at Mass$/ { print NR }")"
+# endline="$(echo "$html_data" | awk "/^The Creed in Slow Motion$/ { print NR }")"
+# endline2="$(($endline - 1))"
+# echo -e "$html_data" | sed -n "1,${linestart_pre2}p;${linestart},${endline2}p" | \
+#   sed "$linestart,\$s/^━/\\n&/g" | \
+#   sed "s/^/$insert_string/g" | \
+#   LESSSECURE=1 less
+# exit 0
+
+# echo -e "$html_data" | sed "s/^/$insert_string/g" |  LESSSECURE=1 less
+echo -e "$html_data" |  LESSSECURE=1 less

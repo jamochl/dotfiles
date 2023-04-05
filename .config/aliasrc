@@ -5,7 +5,7 @@ alias doit="sudo pacman -Syu"
 alias mv="mv -v"
 alias cp="cp -v"
 alias vi='vim -u NONE'
-alias open="xdg-open"
+# alias open="xdg-open"
 alias ls='ls --color'
 alias ll='ls -lh'
 alias la='ls -lah'
@@ -21,6 +21,17 @@ alias neofetch4='neofetch --ascii .config/ascii_art2 --ascii_colors 2 216 7 246 
 alias updateNvim="cp ~/.vimrc ~/.config/nvim/init.vim && sed -i 's#\.vim/plugged#.config/nvim/plugged#' ~/.config/nvim/init.vim"
 alias updateVim="cp ~/.config/nvim/init.vim ~/.vimrc && sed -i 's#\.config/nvim/plugged#.vim/plugged#' ~/.vimrc"
 alias ip="ip -color=auto"
+alias mmdc="npx -p @mermaid-js/mermaid-cli mmdc"
+
+# Multipass
+
+multishell() {
+    if [[ $PWD == "$HOME"* ]]; then
+        multipass exec primary -- bash -c "cd ~/Home/${PWD##$HOME}; bash --login"
+    else
+        multipass shell primary
+    fi 
+}
 
 # Conf Aliases
 alias zshconf="$EDITOR ~/.zshrc"

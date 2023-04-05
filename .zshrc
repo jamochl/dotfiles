@@ -64,6 +64,13 @@ PS1='%F{cyan}[%~]%(?.%F{green}$.%F{red}$)%f '
 
 alias history="history 0"
 
+# Use direnv
+
+if which direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
+
 # Do on shell startup
 reminders.sh
 . "/Users/james/.acme.sh/acme.sh.env"
